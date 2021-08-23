@@ -1,8 +1,8 @@
-import 'package:expensemanager/screens/auth/signUpScreen.dart';
-import 'package:expensemanager/screens/testing.dart';
+import 'package:expensemanager/splashScreen.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+import 'package:get/get_navigation/src/root/get_material_app.dart';
 
+import 'Utils/appConst.dart';
 
 void main() {
   runApp(MyApp());
@@ -14,11 +14,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
+      title: appName,
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: Testing(),
+      home: SplashScreen(),
     );
   }
 }
