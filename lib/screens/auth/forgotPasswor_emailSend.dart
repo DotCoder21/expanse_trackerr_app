@@ -1,4 +1,6 @@
+import 'package:expensemanager/Utils/appColors.dart';
 import 'package:expensemanager/Utils/appConst.dart';
+import 'package:expensemanager/Widgets/button.dart';
 import 'package:expensemanager/screens/auth/resetPassword.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -48,12 +50,14 @@ class _ForgotPasswordEmailSendState extends State<ForgotPasswordEmailSend> {
               onTap: () {
                 Get.to(() => ResetPassword());
               },
-              child: Container(
-                color: Colors.grey,
-                height: Get.height * 0.07,
-                //height: 56,
-                width: double.infinity,
-                child: Center(child: Text('Back to LogIn')),
+              child: Button(
+                onTap: () {
+                  Get.to(() => ResetPassword());
+                },
+                buttonText: 'Go to Log In',
+                widthPercent: double.infinity,
+                buttonColor: AppColor.violetColor,
+                textColor: AppColor.lightVioletColor,
               ),
             ),
             SizedBox(

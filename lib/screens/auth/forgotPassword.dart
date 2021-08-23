@@ -1,5 +1,8 @@
+import 'package:expensemanager/Utils/appColors.dart';
 import 'package:expensemanager/Utils/appConst.dart';
 import 'package:expensemanager/Widgets/buildAppBar.dart';
+import 'package:expensemanager/Widgets/button.dart';
+import 'package:expensemanager/Widgets/textField.dart';
 import 'package:expensemanager/screens/auth/forgotPasswor_emailSend.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -13,7 +16,8 @@ class _ForgotPasswordState extends State<ForgotPassword> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: buildAppBar('Forgot Password'),
+      backgroundColor: AppColor.backgroundColor,
+      appBar: buildAppBar('Forgot Password', Colors.black),
       body: Container(
         padding: EdgeInsets.symmetric(horizontal: 16),
         child: Column(
@@ -33,11 +37,13 @@ class _ForgotPasswordState extends State<ForgotPassword> {
               height: Get.height * 0.05,
               //  height: 46,
             ),
-            Container(
-              color: Colors.grey,
-              height: Get.height * 0.07,
-              //height: 56,
-              width: double.infinity,
+            displayTextField(
+              labelText: 'Email',
+              keyboardType: TextInputType.name,
+              savedHandler: (val) {},
+              validaterHandler: (val) {
+                return (val.isEmpty) ? "*Required" : null;
+              },
             ),
             SizedBox(
               height: Get.height * 0.037,
@@ -47,12 +53,14 @@ class _ForgotPasswordState extends State<ForgotPassword> {
               onTap: () {
                 Get.to(() => ForgotPasswordEmailSend());
               },
-              child: Container(
-                color: Colors.grey,
-                height: Get.height * 0.07,
-                //height: 56,
-                width: double.infinity,
-                child: Center(child: Text('Countious')),
+              child: Button(
+                onTap: () {
+                  Get.to(() => ForgotPasswordEmailSend());
+                },
+                buttonText: 'Continue',
+                widthPercent: double.infinity,
+                buttonColor: AppColor.violetColor,
+                textColor: AppColor.lightVioletColor,
               ),
             ),
           ],

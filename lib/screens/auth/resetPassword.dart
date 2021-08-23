@@ -1,4 +1,8 @@
+import 'package:expensemanager/Utils/appColors.dart';
 import 'package:expensemanager/Widgets/buildAppBar.dart';
+import 'package:expensemanager/Widgets/button.dart';
+import 'package:expensemanager/Widgets/textField.dart';
+import 'package:expensemanager/screens/auth/setUpAccount.dart';
 import 'package:expensemanager/screens/auth/setUpPin.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -13,7 +17,7 @@ class _ResetPasswordState extends State<ResetPassword> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: buildAppBar('Reset Password'),
+      appBar: buildAppBar('Reset Password', Colors.black),
       body: Container(
         padding: EdgeInsets.symmetric(horizontal: 16),
         child: Column(
@@ -22,20 +26,24 @@ class _ResetPasswordState extends State<ResetPassword> {
               height: Get.height * 0.084,
               //height: 72,
             ),
-            Container(
-              color: Colors.grey,
-              height: Get.height * 0.07,
-              //height: 56,
-              width: double.infinity,
+            displayTextField(
+              labelText: 'New password',
+              keyboardType: TextInputType.name,
+              savedHandler: (val) {},
+              validaterHandler: (val) {
+                return (val.isEmpty) ? "*Required" : null;
+              },
             ),
             SizedBox(
               height: Get.height * 0.026,
             ),
-            Container(
-              color: Colors.grey,
-              height: Get.height * 0.07,
-              //height: 56,
-              width: double.infinity,
+            displayTextField(
+              labelText: 'Retype new Password',
+              keyboardType: TextInputType.name,
+              savedHandler: (val) {},
+              validaterHandler: (val) {
+                return (val.isEmpty) ? "*Required" : null;
+              },
             ),
             SizedBox(
               height: Get.height * 0.046,
@@ -45,12 +53,14 @@ class _ResetPasswordState extends State<ResetPassword> {
               onTap: () {
                 Get.to(() => SetUpPin());
               },
-              child: Container(
-                color: Colors.grey,
-                height: Get.height * 0.07,
-                //height: 56,
-                width: double.infinity,
-                child: Center(child: Text('Continue')),
+              child: Button(
+                onTap: () {
+                  Get.to(() => SetUpAccount());
+                },
+                buttonText: 'Log In',
+                widthPercent: double.infinity,
+                buttonColor: AppColor.violetColor,
+                textColor: AppColor.lightVioletColor,
               ),
             ),
           ],

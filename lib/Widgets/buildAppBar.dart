@@ -3,7 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-PreferredSize buildAppBar(String title) {
+PreferredSize buildAppBar(String title,Color color) {
   return PreferredSize(
     preferredSize: Size.fromHeight(Get.height * 0.07),
     child: Align(
@@ -15,14 +15,14 @@ PreferredSize buildAppBar(String title) {
           padding: const EdgeInsets.only(left: 20),
           child: Icon(
             Icons.arrow_back,
-            color: Colors.black,
+            color: color,
           ),
         ),
         centerTitle: true,
         title: Text(
           title,
           style: kTextStyle.copyWith(
-              color: Colors.black, fontSize: 18, fontWeight: FontWeight.bold),
+              color: color, fontSize: 18, fontWeight: FontWeight.bold),
           textAlign: TextAlign.center,
         ),
       ),
