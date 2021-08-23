@@ -1,3 +1,4 @@
+import 'package:expensemanager/Utils/appColors.dart';
 import 'package:expensemanager/Utils/appConst.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -8,6 +9,7 @@ class SignUpScreen extends StatefulWidget {
 }
 
 class _SignUpScreenState extends State<SignUpScreen> {
+  bool checkBox = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -72,7 +74,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
               children: [
                 Checkbox(
                     checkColor: Colors.white,
-                    activeColor: Color(0xff156976),
+                    activeColor: AppColor.violetColor,
                     value: checkBox,
                     onChanged: (bool value) {
                       setState(() {
