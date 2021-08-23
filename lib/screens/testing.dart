@@ -1,7 +1,9 @@
 import 'package:expensemanager/Utils/appColors.dart';
 import 'package:expensemanager/Widgets/button.dart';
 import 'package:expensemanager/Widgets/textField.dart';
+import 'package:expensemanager/screens/pinScreen/pinSetScreen.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 
 class Testing extends StatefulWidget {
@@ -57,7 +59,9 @@ class _TestingState extends State<Testing> {
           Button(
             buttonColor: AppColor.violetColor,
             buttonText: 'Sign Up',
-            onTap: (){},
+            onTap: (){
+              Get.to(()=>PassCodeSetScreen());
+            },
             textColor: AppColor.lightVioletColor,
             widthPercent: 0.9,
           ),
