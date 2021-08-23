@@ -5,3 +5,5 @@ final kTextStyle = GoogleFonts.inter(
   fontSize: 20,
   color: Colors.black,
 );
+
+String appName = "Expance Manager";
