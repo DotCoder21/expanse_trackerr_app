@@ -6,6 +6,7 @@ import 'package:expensemanager/Widgets/sizedBox.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:radial_button/widget/circle_floating_button.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -13,6 +14,25 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  var time = ['Today', 'Week', 'Month', 'Year'];
+  var itemsToBody = [
+    FloatingActionButton(
+      backgroundColor: Colors.greenAccent,
+      onPressed: () {},
+      child: Icon(Icons.add),
+    ),
+    FloatingActionButton(
+      backgroundColor: Colors.indigoAccent,
+      onPressed: () {},
+      child: Icon(Icons.camera),
+    ),
+    FloatingActionButton(
+      backgroundColor: Colors.orangeAccent,
+      onPressed: () {},
+      child: Icon(Icons.card_giftcard),
+    ),
+  ];
+  OverlayEntry entry;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,15 +47,18 @@ class _HomePageState extends State<HomePage> {
                   // crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
                     Container(
-                      height: 32,
-                      width: 32,
+                      height: Get.height * 0.036,
+                      width: Get.width * 0.070,
+                      //width: 32,
                       decoration: BoxDecoration(
                           shape: BoxShape.circle,
                           border: Border.all(
                               width: 2, color: AppColor.violetColor)),
                       child: Container(
-                        height: 30,
-                        width: 30,
+                        height: Get.height * 0.034,
+
+                        width: Get.width * 0.034,
+                        // width: 30,
                         child: CircleAvatar(
                           // maxRadius: 15,
                           backgroundColor: Colors.blueGrey,
@@ -43,8 +66,10 @@ class _HomePageState extends State<HomePage> {
                       ),
                     ),
                     Container(
-                      height: 35,
-                      width: 100,
+                      height: Get.height * 0.038,
+                      width: Get.width * 0.25,
+                      // height: 35,
+                      // width: 100,
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(32),
                           border: Border.all(color: AppColor.lightVioletColor)),
@@ -63,7 +88,10 @@ class _HomePageState extends State<HomePage> {
                   ],
                 ),
               ),
-              displaySizedBox(height: 9),
+              displaySizedBox(
+                height: Get.height * 0.012,
+                //height: 9,
+              ),
               Text(
                 'Account Balance',
                 style: kTextStyle.copyWith(
@@ -75,7 +103,10 @@ class _HomePageState extends State<HomePage> {
                 style: kTextStyle.copyWith(
                     fontSize: 40, fontWeight: FontWeight.bold),
               ),
-              displaySizedBox(height: 27),
+              displaySizedBox(
+                height: Get.height * 0.03,
+                // height: 27
+              ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
@@ -94,6 +125,150 @@ class _HomePageState extends State<HomePage> {
                       fontSize: 18, fontWeight: FontWeight.bold),
                 ),
               ),
+              displaySizedBox(height: Get.height * 0.01),
+              Container(
+                height: Get.height * 0.040,
+                child: ListView.builder(
+                  itemCount: time.length,
+                  scrollDirection: Axis.horizontal,
+                  itemBuilder: (BuildContext context, int index) {
+                    return Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 3),
+                      child: Container(
+                        height: Get.height * 0.038,
+                        width: Get.width * 0.21,
+                        decoration: BoxDecoration(
+                            color: AppColor.lightYellowColor,
+                            borderRadius: BorderRadius.circular(29)),
+                        child: Center(
+                            child: Text(
+                          time[index],
+                          style: kTextStyle.copyWith(
+                              fontSize: 14,
+                              fontWeight: FontWeight.bold,
+                              color: AppColor.yellowColor),
+                        )),
+                      ),
+                    );
+                  },
+                ),
+              ),
+              displaySizedBox(height: 24),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text('Resent Transection',
+                      style: kTextStyle.copyWith(
+                          fontWeight: FontWeight.bold, fontSize: 18)),
+                  Container(
+                    height: Get.height * 0.038,
+                    width: Get.width * 0.2,
+                    // height: 32,
+                    // width: 78,
+                    decoration: BoxDecoration(
+                      color: AppColor.lightVioletColor,
+                      borderRadius: BorderRadius.circular(29),
+                    ),
+                    child: Center(
+                      child: Text(
+                        'See All',
+                        style: kTextStyle.copyWith(
+                            color: AppColor.violetColor, fontSize: 14),
+                      ),
+                    ),
+                  )
+                ],
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 5),
+                child: Container(
+                  height: Get.height * 0.13,
+
+                  // height: 89,
+                  width: double.infinity,
+                  padding: EdgeInsets.symmetric(horizontal: 17),
+                  decoration: BoxDecoration(
+                      //  color: Colors.green,
+                      //color: AppColor.cardBackGroundColor,
+                      borderRadius: BorderRadius.circular(24)),
+                  child: Row(
+                    // crossAxisAlignment: CrossAxisAlignment.,
+
+                    children: [
+                      Container(
+                          child: Image.asset('assets/images/Frame 5.png')),
+                      displaySizedBox(width: 19),
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            'Shopping',
+                            style: kTextStyle.copyWith(fontSize: 16),
+                          ),
+                          Text(
+                            'By some Grosary',
+                            style: kTextStyle.copyWith(
+                                color: AppColor.lightTextColor, fontSize: 13),
+                          ),
+                        ],
+                      ),
+                      Spacer(),
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            '\$112',
+                            style: kTextStyle.copyWith(
+                                color: AppColor.redColor, fontSize: 14),
+                          ),
+                          Text(
+                            '10:00 AM',
+                            style: kTextStyle.copyWith(
+                                color: AppColor.lightTextColor, fontSize: 13),
+                          ),
+                        ],
+                      )
+                    ],
+                  ),
+                ),
+              ),
+              // FloatingActionButtonLocation.centerDocked,
+            ],
+          ),
+        ),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      floatingActionButton: FloatingActionButton(
+          child: CircleFloatingButton.semiCircle(
+              items: itemsToBody,
+              color: Colors.red,
+              duration: Duration(milliseconds: 1000),
+              curveAnim: Curves.elasticOut)),
+      bottomNavigationBar: BottomAppBar(
+        shape: CircularNotchedRectangle(),
+        notchMargin: 4.0,
+        child: Container(
+          child: Row(
+            mainAxisSize: MainAxisSize.max,
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: <Widget>[
+              IconButton(
+                icon: Icon(Icons.menu),
+                onPressed: () {},
+              ),
+              IconButton(
+                icon: Icon(Icons.search),
+                onPressed: () {},
+              ),
+              IconButton(
+                icon: Icon(Icons.menu),
+                onPressed: () {},
+              ),
+              IconButton(
+                icon: Icon(Icons.search),
+                onPressed: () {},
+              )
             ],
           ),
         ),
