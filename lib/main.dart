@@ -1,7 +1,6 @@
 import 'package:expensemanager/screens/homePage.dart';
 import 'package:expensemanager/splashScreen.dart';
 import 'package:flutter/material.dart';
-import 'package:expensemanager/screens/pinScreen/Notification/notification.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 
 import 'Utils/appConst.dart';
@@ -20,7 +19,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: NotificationScreen(),
+      home: SplashScreen(),
     );
   }
 }
