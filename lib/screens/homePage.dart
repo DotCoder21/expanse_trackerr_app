@@ -1,7 +1,11 @@
+import 'dart:ui';
+
 import 'package:expensemanager/Utils/appColors.dart';
 import 'package:expensemanager/Utils/appConst.dart';
 import 'package:expensemanager/Widgets/sizedBox.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -81,7 +85,15 @@ class _HomePageState extends State<HomePage> {
                       'assets/icons/group2.png', 'Expences', 400),
                 ],
               ),
-              Text('Data'),
+              displaySizedBox(height: Get.height * 0.027),
+              Align(
+                alignment: Alignment.topLeft,
+                child: Text(
+                  'Spend Frequency',
+                  style: kTextStyle.copyWith(
+                      fontSize: 18, fontWeight: FontWeight.bold),
+                ),
+              ),
             ],
           ),
         ),
