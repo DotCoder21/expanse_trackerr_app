@@ -1,11 +1,15 @@
+import 'dart:async';
+
 import 'package:expensemanager/screens/homePage.dart';
-import 'package:expensemanager/splashScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 
 import 'Utils/appConst.dart';
 
-void main() {
+Future<void> main() async {
+  // WidgetsFlutterBinding.ensureInitialized();
+  //
+  // cameras = await availableCameras();
   runApp(MyApp());
 }
 
