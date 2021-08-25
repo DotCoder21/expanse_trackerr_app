@@ -23,9 +23,10 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  google_fonts: ^1.1.2
-  get: 4.3.4
-  radial_button: ^0.1.1
+  google_fonts:
+  # get: 4.3.4
+  get: 
+  radial_button:
 #  camera: ^0.7.0+4
 
 
