@@ -29,3 +29,25 @@ PreferredSize buildAppBar(String title,Color color) {
     ),
   );
 }
+
+
+ Widget displayCustomAppBar(String title,Function deleteHandler,Color backgroundColor) {
+    return AppBar(
+      backgroundColor: backgroundColor,
+      leading: IconButton(
+        onPressed: ()=>Get.back(),
+        icon: Icon(Icons.keyboard_arrow_left),
+      ),
+      centerTitle: true,
+      elevation: 0.0,
+      title: Text(title,style: kTextStyle.copyWith(color: Colors.white,fontSize: 18,),),
+      actions: [
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: InkWell(
+            onTap: deleteHandler,
+            child: Icon(Icons.delete,color: Colors.white,)),
+        ),
+      ],
+    );
+  }

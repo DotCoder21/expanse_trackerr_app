@@ -2,6 +2,8 @@ import 'dart:ui';
 
 import 'package:expensemanager/Utils/appColors.dart';
 import 'package:expensemanager/Utils/appConst.dart';
+import 'package:expensemanager/Widgets/lineChart.dart';
+import 'package:expensemanager/Widgets/pieChart.dart';
 import 'package:expensemanager/Widgets/sizedBox.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -139,6 +141,13 @@ class _HomePageState extends State<HomePage> {
                   style: kTextStyle.copyWith(
                       fontSize: 18, fontWeight: FontWeight.bold),
                 ),
+              ),
+              displaySizedBox(height: Get.height * 0.01),
+              Container(
+                height: 180,
+                width: Get.width,
+                // child: LineChartt(),
+                child: PieChartSam(),
               ),
               displaySizedBox(height: Get.height * 0.01),
               Container(
