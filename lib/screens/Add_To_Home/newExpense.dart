@@ -1,13 +1,18 @@
+
+import 'dart:io';
+
 import 'package:expensemanager/Utils/appColors.dart';
 import 'package:expensemanager/Utils/appConst.dart';
 import 'package:expensemanager/Widgets/bottomCard.dart';
 import 'package:expensemanager/Widgets/button.dart';
+import 'package:expensemanager/Widgets/dialogues.dart';
 import 'package:expensemanager/Widgets/sizedBox.dart';
 import 'package:expensemanager/Widgets/textField.dart';
 import 'package:expensemanager/screens/Add_To_Home/newIncome.dart';
 import 'package:fdottedline/fdottedline.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:image_picker/image_picker.dart';
 
 class NewExpense extends StatefulWidget {
   @override
@@ -15,6 +20,9 @@ class NewExpense extends StatefulWidget {
 }
 
 class _NewExpenseState extends State<NewExpense> {
+  File imageFile;
+
+  bool isRepeat=false;
   @override
   Widget build(BuildContext context) {
     return BottomCard(
@@ -60,7 +68,7 @@ class _NewExpenseState extends State<NewExpense> {
                   return (val.isEmpty) ? "*Required" : null;
                 },
               ),
-
+              imageFile==null?
               FDottedLine(
                 color: AppColor.lightTextColor,
                 height: 100.0,
@@ -68,25 +76,63 @@ class _NewExpenseState extends State<NewExpense> {
                 strokeWidth: 0.1,
                 dottedLength: 10.0,
                 space: 2.0,
-                child: Container(
-                  height: Get.height * 0.07,
-                  width: Get.width,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      ImageIcon(
-                        AssetImage('assets/icons/pin.png'),
-                        color: AppColor.lightTextColor,
-                      ),
-                      displaySizedBox(width: Get.width * 0.03),
-                      Text(
-                        'Add Attachment',
-                        style: kTextStyle.copyWith(
-                            color: AppColor.lightTextColor, fontSize: 16),
-                      ),
-                    ],
+                child: InkWell(
+                  onTap :(){
+                    onAlertPress(context, getCameraImage, getGalleryImage);
+                  },
+                  child: Container(
+                    height: Get.height * 0.07,
+                    width: Get.width,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        ImageIcon(
+                          AssetImage('assets/icons/pin.png'),
+                          color: AppColor.lightTextColor,
+                        ),
+                        displaySizedBox(width: Get.width * 0.03),
+                        Text(
+                          'Add Attachment',
+                          style: kTextStyle.copyWith(
+                              color: AppColor.lightTextColor, fontSize: 16),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
+              ):Row(
+                children: [
+                  Container(
+                    height: 100,
+                    width: 100,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(8.0),
+                      image: DecorationImage(image: FileImage(imageFile),
+                      fit: BoxFit.contain
+                      ,)
+                    ),
+                    alignment: Alignment.topRight,
+                  child: InkWell(
+                    onTap: (){
+                      imageFile=null;
+                      setState(() {
+                        
+                        
+                      });
+                    },
+                    child: Container(
+                      height: 20,
+                      width: 20,
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        color:AppColor.lightVioletColor
+                      ),
+                      alignment: Alignment.center,
+                      child: Icon(Icons.close,color: Colors.white,size: 15,),
+                    ),
+                  ),
+                  ),
+                ],
               ),
               Container(
                 padding: EdgeInsets.symmetric(horizontal: 20),
@@ -108,17 +154,32 @@ class _NewExpenseState extends State<NewExpense> {
                       ],
                     ),
                     Spacer(),
-                    Icon(
-                      Icons.toggle_off_rounded,
-                      color: AppColor.lightVioletColor,
-                      size: 50,
-                    ),
+                    // Icon(
+                    //   Icons.toggle_off_rounded,
+                    //   color: AppColor.lightVioletColor,
+                    //   size: 50,
+                    // ),
+                    Switch(
+                      value: isRepeat, 
+                      onChanged: (val){
+                        isRepeat = val;
+                        setState(() {
+                          
+                        });
+                      },
+                      activeColor: AppColor.violetColor,
+                      )
                   ],
                 ),
               ),
+              isRepeat?
+              Container(
+
+              ):displaySizedBox(),
               Button(
                 onTap: () {
-                  Get.to(() => NewIncome());
+                  // Get.to(() => NewIncome());
+                  gisplaySuccessfulDialogue();
                 },
                 buttonText: 'Continue',
                 widthPercent: double.infinity,
@@ -130,5 +191,40 @@ class _NewExpenseState extends State<NewExpense> {
         ),
       ),
     );
+  }
+
+   getCameraImage() async {
+    await picker
+        .pickImage(
+            source: ImageSource.camera,
+            imageQuality: 60,
+            maxHeight: 400,
+            maxWidth: 300)
+        .then((value) {
+      imageFile =File(value.path);
+    });
+
+    setState(() {
+      Navigator.pop(context);
+    });
+  }
+
+  final picker = ImagePicker();
+
+  //============================== Image from gallery
+  getGalleryImage() async {
+    await picker
+        .pickImage(
+            source: ImageSource.gallery,
+            imageQuality: 60,
+            maxHeight: 400,
+            maxWidth: 300)
+        .then((value) {
+      imageFile =File(value.path);
+    });
+
+    setState(() {
+      Navigator.pop(context);
+    });
   }
 }

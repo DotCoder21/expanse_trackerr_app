@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 
 import 'Utils/appConst.dart';
+import 'screens/Add_To_Home/newExpense.dart';
 
 Future<void> main() async {
   // WidgetsFlutterBinding.ensureInitialized();
