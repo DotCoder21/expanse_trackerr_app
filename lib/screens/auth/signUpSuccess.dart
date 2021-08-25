@@ -20,7 +20,7 @@ class _SignUpSuccessState extends State<SignUpSuccess> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Image.asset('assets/images/Vector.png'),
+              Image.asset('assets/images/pin.png'),
               displaySizedBox(height: 32),
               Text(
                 'You are Set!',

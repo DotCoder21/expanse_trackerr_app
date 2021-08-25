@@ -15,24 +15,37 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   var time = ['Today', 'Week', 'Month', 'Year'];
-  var itemsToBody = [
-    FloatingActionButton(
-      backgroundColor: Colors.greenAccent,
-      onPressed: () {},
-      child: Icon(Icons.add),
-    ),
-    FloatingActionButton(
-      backgroundColor: Colors.indigoAccent,
-      onPressed: () {},
-      child: Icon(Icons.camera),
-    ),
-    FloatingActionButton(
-      backgroundColor: Colors.orangeAccent,
-      onPressed: () {},
-      child: Icon(Icons.card_giftcard),
-    ),
-  ];
-  OverlayEntry entry;
+
+    List<Widget> itemsActionBar;
+   GlobalKey<CircleFloatingButtonState> key01 =
+      GlobalKey<CircleFloatingButtonState>();
+      fechar() {
+    key01.currentState.close();
+  }
+@override
+  void initState() {
+    itemsActionBar = [
+      FloatingActionButton(
+        heroTag: UniqueKey(),
+        backgroundColor: Colors.greenAccent,
+        onPressed: fechar,
+        child: Icon(Icons.add),
+      ),
+      FloatingActionButton(
+        heroTag: UniqueKey(),
+        backgroundColor: Colors.indigoAccent,
+        onPressed: fechar,
+        child: Icon(Icons.camera),
+      ),
+      FloatingActionButton(
+        heroTag: UniqueKey(),
+        backgroundColor: Colors.orangeAccent,
+        onPressed: fechar,
+        child: Icon(Icons.card_giftcard),
+      ),
+    ];
+    super.initState();
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -239,13 +252,17 @@ class _HomePageState extends State<HomePage> {
         ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      floatingActionButton: FloatingActionButton(
-          child: CircleFloatingButton.semiCircle(
-              items: itemsToBody,
-              color: Colors.red,
-              duration: Duration(milliseconds: 1000),
-              curveAnim: Curves.elasticOut)),
+       floatingActionButton: CircleFloatingButton.floatingActionButton(
+        //  position: Position.left,
+        key: key01,
+        items: itemsActionBar,
+        color: AppColor.violetColor,
+        icon: Icons.add,
+        duration: Duration(milliseconds: 1000),
+        curveAnim: Curves.ease,
+      ),
       bottomNavigationBar: BottomAppBar(
+
         shape: CircularNotchedRectangle(),
         notchMargin: 4.0,
         child: Container(

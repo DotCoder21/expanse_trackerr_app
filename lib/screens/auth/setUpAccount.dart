@@ -16,6 +16,7 @@ class _SetUpAccountState extends State<SetUpAccount> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppColor.backgroundColor,
       body: Container(
         padding: EdgeInsets.symmetric(horizontal: 16),
         child: Column(

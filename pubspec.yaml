@@ -23,10 +23,10 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  google_fonts:
-  # get: 4.3.4
-  get: 
-  radial_button:
+  google_fonts: ^1.1.2
+  get: 4.3.4
+  radial_button: ^0.1.1
+  fdottedline: ^1.0.1
 #  camera: ^0.7.0+4
 
 

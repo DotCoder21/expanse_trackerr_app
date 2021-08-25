@@ -15,6 +15,7 @@ class _ForgotPasswordEmailSendState extends State<ForgotPasswordEmailSend> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+       backgroundColor: AppColor.backgroundColor,
       body: Container(
         padding: EdgeInsets.symmetric(horizontal: 32),
         child: Column(

@@ -3,25 +3,22 @@ import 'package:expensemanager/Utils/appConst.dart';
 import 'package:expensemanager/Widgets/buildAppBar.dart';
 import 'package:flutter/material.dart';
 
-class SettingCurrency extends StatefulWidget {
+class SettingSecurity extends StatefulWidget {
   @override
-  _SettingCurrencyState createState() => _SettingCurrencyState();
+  _SettingSecurityState createState() => _SettingSecurityState();
 }
 
-class _SettingCurrencyState extends State<SettingCurrency> {
+class _SettingSecurityState extends State<SettingSecurity> {
   List<String> currencyList = [
-    "United States (USD)",
-    "Indonesia (IDR)",
-    "Japan (JPY)",
-    "Russia (RUB)",
-    "Germany (EUR)",
-    "Korea (WON)",
+    "PIN",
+    "Finger Print",
+    "Face ID",
   ];
   String selectedCurrency = "";
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: buildAppBar('Currency', Colors.black),
+      appBar: buildAppBar('Security', Colors.black),
       body: Container(
         child: ListView.builder(
             itemCount: currencyList.length,
