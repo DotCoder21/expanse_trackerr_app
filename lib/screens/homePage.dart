@@ -16,13 +16,14 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   var time = ['Today', 'Week', 'Month', 'Year'];
 
-    List<Widget> itemsActionBar;
-   GlobalKey<CircleFloatingButtonState> key01 =
+  List<Widget> itemsActionBar;
+  GlobalKey<CircleFloatingButtonState> key01 =
       GlobalKey<CircleFloatingButtonState>();
-      fechar() {
+  fechar() {
     key01.currentState.close();
   }
-@override
+
+  @override
   void initState() {
     itemsActionBar = [
       FloatingActionButton(
@@ -46,6 +47,7 @@ class _HomePageState extends State<HomePage> {
     ];
     super.initState();
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -251,8 +253,8 @@ class _HomePageState extends State<HomePage> {
           ),
         ),
       ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-       floatingActionButton: CircleFloatingButton.floatingActionButton(
+      //floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      floatingActionButton: CircleFloatingButton.floatingActionButton(
         //  position: Position.left,
         key: key01,
         items: itemsActionBar,
@@ -262,7 +264,6 @@ class _HomePageState extends State<HomePage> {
         curveAnim: Curves.ease,
       ),
       bottomNavigationBar: BottomAppBar(
-
         shape: CircularNotchedRectangle(),
         notchMargin: 4.0,
         child: Container(

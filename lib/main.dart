@@ -1,8 +1,6 @@
 import 'dart:async';
 
 import 'package:expensemanager/screens/Budget/emptyState.dart';
-import 'package:expensemanager/screens/homePage.dart';
-import 'package:expensemanager/screens/testing%202.dart';
 import 'package:flutter/material.dart';
 //import 'package:expensemanager/screens/pinScreen/Notification/notification.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
@@ -26,7 +24,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: HomePage(),
+      home: EmptyState(),
     );
   }
 }
