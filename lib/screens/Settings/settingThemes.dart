@@ -3,25 +3,22 @@ import 'package:expensemanager/Utils/appConst.dart';
 import 'package:expensemanager/Widgets/buildAppBar.dart';
 import 'package:flutter/material.dart';
 
-class SettingCurrency extends StatefulWidget {
+class SettingTheme extends StatefulWidget {
   @override
-  _SettingCurrencyState createState() => _SettingCurrencyState();
+  _SettingThemeState createState() => _SettingThemeState();
 }
 
-class _SettingCurrencyState extends State<SettingCurrency> {
+class _SettingThemeState extends State<SettingTheme> {
   List<String> currencyList = [
-    "United States (USD)",
-    "Indonesia (IDR)",
-    "Japan (JPY)",
-    "Russia (RUB)",
-    "Germany (EUR)",
-    "Korea (WON)",
+    "Light",
+    "Dark",
+    "Use a device theme",
   ];
   String selectedCurrency = "";
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: buildAppBar('Currency', Colors.black),
+      appBar: buildAppBar('Theme', Colors.black),
       body: Container(
         child: ListView.builder(
             itemCount: currencyList.length,
