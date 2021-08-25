@@ -2,10 +2,11 @@ import 'package:expensemanager/Utils/appColors.dart';
 import 'package:expensemanager/Utils/appConst.dart';
 import 'package:expensemanager/Widgets/button.dart';
 import 'package:expensemanager/Widgets/sizedBox.dart';
-import 'package:expensemanager/screens/Budget/createBudget.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
+import 'budgetDetails.dart';
 
 class BudgetScreen extends StatefulWidget {
   @override
@@ -82,7 +83,7 @@ class _BudgetScreenState extends State<BudgetScreen> {
                         progressColor: AppColor.violetColor),
                     Button(
                       onTap: () {
-                        Get.to(() => CreateBudget());
+                        Get.to(() => BudgetDetail());
                       },
                       buttonText: 'Continue',
                       widthPercent: double.infinity,
@@ -139,6 +140,7 @@ class _BudgetScreenState extends State<BudgetScreen> {
               ),
               Icon(
                 icon,
+                size: 5,
                 color: AppColor.redColor,
               ),
             ],
