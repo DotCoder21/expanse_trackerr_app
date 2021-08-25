@@ -3,6 +3,7 @@ import 'package:expensemanager/Utils/appConst.dart';
 import 'package:expensemanager/Widgets/buildAppBar.dart';
 import 'package:expensemanager/Widgets/button.dart';
 import 'package:expensemanager/Widgets/textField.dart';
+import 'package:expensemanager/screens/auth/setUpAccount.dart';
 import 'package:expensemanager/screens/auth/signUpScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -61,7 +62,9 @@ class _SignInScreenState extends State<SignInScreen> {
               // height: 40,
             ),
             Button(
-              onTap: () {},
+              onTap: () {
+                Get.to(() => SetUpAccount());
+              },
               buttonText: 'Log In',
               widthPercent: double.infinity,
               buttonColor: AppColor.violetColor,

@@ -51,7 +51,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 height: Get.height * 0.026,
               ),
               displayTextField(
-                  labelText: 'Name',
+                  labelText: 'Password',
                   keyboardType: TextInputType.name,
                   savedHandler: (val) {},
                   validaterHandler: (val) {

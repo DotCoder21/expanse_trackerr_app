@@ -2,6 +2,8 @@ import 'package:expensemanager/Utils/appColors.dart';
 import 'package:expensemanager/Widgets/bottomCard.dart';
 import 'package:expensemanager/Widgets/button.dart';
 import 'package:expensemanager/Widgets/textField.dart';
+import 'package:expensemanager/screens/auth/signUpSuccess.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -32,7 +34,7 @@ class _AddNewBankAccountState extends State<AddNewBankAccount> {
             children: [
               // displaySizedBox(height: Get.height * 0.025),
               displayTextField(
-                labelText: 'Name',
+                labelText: 'Chase',
                 keyboardType: TextInputType.name,
                 savedHandler: (val) {},
                 validaterHandler: (val) {
@@ -41,16 +43,17 @@ class _AddNewBankAccountState extends State<AddNewBankAccount> {
               ),
               //displaySizedBox(height: Get.height * 0.016),
               displayTextField(
-                labelText: 'Account type',
+                labelText: 'Bank',
                 keyboardType: TextInputType.name,
                 savedHandler: (val) {},
                 validaterHandler: (val) {
                   return (val.isEmpty) ? "*Required" : null;
                 },
               ),
+              //  GridView.builder(gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 4), itemBuilder: ),
               Button(
                 onTap: () {
-                  // Get.to(() => AddNewBankAccount());
+                  Get.to(() => SignUpSuccess());
                 },
                 buttonText: 'Continue',
                 widthPercent: double.infinity,
