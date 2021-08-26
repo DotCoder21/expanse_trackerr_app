@@ -18,7 +18,7 @@ class _SettingThemeState extends State<SettingTheme> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: buildAppBar('Theme', Colors.black),
+      appBar: buildAppBar(title: 'Theme', color: Colors.black),
       body: Container(
         child: ListView.builder(
             itemCount: currencyList.length,

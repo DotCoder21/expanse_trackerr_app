@@ -36,7 +36,7 @@ class _SettingNotificationPageState extends State<SettingNotificationPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: buildAppBar('Notification', Colors.black),
+      appBar: buildAppBar(title: 'Notification', color: Colors.black),
       body: Container(
         padding: EdgeInsets.symmetric(horizontal: 16),
         height: Get.height,

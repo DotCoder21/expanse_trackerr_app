@@ -21,7 +21,7 @@ class _SettingCurrencyState extends State<SettingCurrency> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: buildAppBar('Currency', Colors.black),
+      appBar: buildAppBar(title: 'Currency', color: Colors.black),
       body: Container(
         child: ListView.builder(
             itemCount: currencyList.length,

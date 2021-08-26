@@ -14,7 +14,7 @@ class _SettingExportDataState extends State<SettingExportData> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: buildAppBar('Export Data', Colors.black),
+      appBar: buildAppBar(title: 'Export Data', color: Colors.black),
       body: Container(
         height: Get.height,
         width: Get.width,

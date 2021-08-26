@@ -26,7 +26,7 @@ class _SettingsLanguageState extends State<SettingsLanguage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: buildAppBar('Language', Colors.black),
+      appBar: buildAppBar(title: 'Language', color: Colors.black),
       body: Container(
         child: ListView.builder(
             itemCount: currencyList.length,

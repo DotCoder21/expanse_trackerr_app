@@ -21,7 +21,7 @@ class _SignInScreenState extends State<SignInScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColor.backgroundColor,
-      appBar: buildAppBar('Sign In', Colors.black),
+      appBar: buildAppBar(title: 'Sign In', color: Colors.black),
       body: Container(
         padding: EdgeInsets.symmetric(horizontal: 16),
         child: Column(

@@ -18,7 +18,7 @@ class _SettingSecurityState extends State<SettingSecurity> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: buildAppBar('Security', Colors.black),
+      appBar: buildAppBar(title: 'Security', color: Colors.black),
       body: Container(
         child: ListView.builder(
             itemCount: currencyList.length,

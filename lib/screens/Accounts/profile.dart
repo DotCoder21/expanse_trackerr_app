@@ -1,6 +1,8 @@
 import 'package:expensemanager/Utils/appColors.dart';
 import 'package:expensemanager/Utils/appConst.dart';
+import 'package:expensemanager/Widgets/bottomSheet.dart';
 import 'package:expensemanager/Widgets/sizedBox.dart';
+import 'package:expensemanager/screens/auth/signUpScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -61,7 +63,18 @@ class _ProfileState extends State<Profile> {
                   Divider(),
                   menuItem('assets/images/download.png', 'Export Data'),
                   Divider(),
-                  menuItem('assets/images/downloadright.png', 'Log out'),
+                  InkWell(
+                      onTap: () {
+                        displayTranSuccessful(
+                            'Log out', 'Are you sure do you wanna Log out?',
+                            () {
+                          Get.to(() => SignUpScreen());
+                        }, () {
+                          Get.back();
+                        });
+                      },
+                      child: menuItem(
+                          'assets/images/downloadright.png', 'Log out')),
                 ],
               ),
 

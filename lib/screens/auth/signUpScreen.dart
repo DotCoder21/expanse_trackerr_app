@@ -19,7 +19,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColor.backgroundColor,
-      appBar: buildAppBar('Sign Up', Colors.black),
+      appBar: buildAppBar(title: 'Sign Up', color: Colors.black),
       body: SingleChildScrollView(
         child: Container(
           padding: EdgeInsets.symmetric(horizontal: 16),

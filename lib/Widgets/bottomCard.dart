@@ -11,6 +11,7 @@ class BottomCard extends StatefulWidget {
   String appBarText;
   String title;
   String balance;
+  IconData actionIcon;
   Widget bottomContainer;
 
   BottomCard(
@@ -18,6 +19,7 @@ class BottomCard extends StatefulWidget {
       this.backgroundColor,
       this.balance,
       this.title,
+      this.actionIcon,
       this.bottomContainer});
 
   @override
@@ -29,7 +31,10 @@ class _BottomCardState extends State<BottomCard> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: widget.backgroundColor,
-      appBar: buildAppBar(widget.appBarText, Colors.white),
+      appBar: buildAppBar(
+          title: widget.appBarText,
+          color: Colors.white,
+          actionIcon: widget.actionIcon),
       body: Container(
         color: Colors.transparent,
         width: double.infinity,

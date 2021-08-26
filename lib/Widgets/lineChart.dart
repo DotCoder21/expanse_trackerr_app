@@ -19,37 +19,38 @@ class _LineCharttState extends State<LineChartt> {
     return Stack(
       children: <Widget>[
         AspectRatio(
-          aspectRatio: 1.70,
+          aspectRatio: 2.5,
           child: Container(
             decoration: const BoxDecoration(
-                borderRadius: BorderRadius.all(
-                  Radius.circular(18),
+                // borderRadius: BorderRadius.circular(
+                //   // Radius.circular(18),
+                // ),
+                // color: Color(0xff232d37)
                 ),
-                color: Color(0xff232d37)),
             child: Padding(
-              padding: const EdgeInsets.only(right: 18.0, left: 12.0, top: 24, bottom: 12),
+              padding: const EdgeInsets.only(right: 0.0, left: 0.0, top: 24, bottom: 12),
               child: LineChart(
                 showAvg ? avgData() : mainData(),
               ),
             ),
           ),
         ),
-        SizedBox(
-          width: 60,
-          height: 34,
-          child: TextButton(
-            onPressed: () {
-              setState(() {
-                showAvg = !showAvg;
-              });
-            },
-            child: Text(
-              'avg',
-              style: TextStyle(
-                  fontSize: 12, color: showAvg ? Colors.white.withOpacity(0.5) : Colors.white),
-            ),
-          ),
-        ),
+        // SizedBox(
+        //   width: 60,
+        //   height: 34,
+        //   child: TextButton(
+        //     onPressed: () {
+        //       setState(() {
+        //         showAvg = !showAvg;
+        //       });
+        //     },
+        //     child: Text(
+        //       'avg',
+        //       style: TextStyle(
+        //           fontSize: 12, color: showAvg ? Colors.white.withOpacity(0.5) : Colors.white),
+        //     ),
+        //   ),
+        // ),
       ],
     );
   }
@@ -57,8 +58,8 @@ class _LineCharttState extends State<LineChartt> {
   LineChartData mainData() {
     return LineChartData(
       gridData: FlGridData(
-        show: true,
-        drawVerticalLine: true,
+        show: false,
+        drawVerticalLine: false,
         getDrawingHorizontalLine: (value) {
           return FlLine(
             color: const Color(0xff37434d),
@@ -73,7 +74,7 @@ class _LineCharttState extends State<LineChartt> {
         },
       ),
       titlesData: FlTitlesData(
-        show: true,
+        show: false,
         bottomTitles: SideTitles(
           showTitles: true,
           reservedSize: 22,

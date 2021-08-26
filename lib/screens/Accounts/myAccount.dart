@@ -15,7 +15,7 @@ class _MyAccountState extends State<MyAccount> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: buildAppBar('Account', Colors.black),
+      appBar: buildAppBar(title: 'Account', color: Colors.black),
       body: Container(
         child: Column(
           children: [
@@ -30,6 +30,21 @@ class _MyAccountState extends State<MyAccount> {
                     ),
                     fit: BoxFit.cover),
               ),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    'Account Balance',
+                    style: kTextStyle.copyWith(
+                        color: AppColor.lightTextColor, fontSize: 14),
+                  ),
+                  displaySizedBox(height: Get.height * 0.01),
+                  Text(
+                    '\$456',
+                    style: kTextStyle.copyWith(fontSize: 40),
+                  ),
+                ],
+              ),
             ),
             Container(
               padding: EdgeInsets.symmetric(horizontal: 20),
@@ -37,33 +52,57 @@ class _MyAccountState extends State<MyAccount> {
                 children: [
                   ListTile(
                     leading: Image.asset('assets/images/wallet.png'),
+                    title: Text(
+                      'Wallet',
+                      style: kTextStyle.copyWith(
+                          fontSize: 18, fontWeight: FontWeight.bold),
+                    ),
                     trailing: Text(
                       '\$100',
-                      style: kTextStyle.copyWith(fontSize: 18),
+                      style: kTextStyle.copyWith(
+                          fontSize: 18, fontWeight: FontWeight.bold),
                     ),
                   ),
                   Divider(),
                   ListTile(
                     leading: Image.asset('assets/images/chase.png'),
+                    title: Text(
+                      'Chase',
+                      style: kTextStyle.copyWith(
+                          fontSize: 18, fontWeight: FontWeight.bold),
+                    ),
                     trailing: Text(
                       '\$100',
-                      style: kTextStyle.copyWith(fontSize: 18),
+                      style: kTextStyle.copyWith(
+                          fontSize: 18, fontWeight: FontWeight.bold),
                     ),
                   ),
                   Divider(),
                   ListTile(
                     leading: Image.asset('assets/images/citi.png'),
+                    title: Text(
+                      'Citi',
+                      style: kTextStyle.copyWith(
+                          fontSize: 18, fontWeight: FontWeight.bold),
+                    ),
                     trailing: Text(
                       '\$100',
-                      style: kTextStyle.copyWith(fontSize: 18),
+                      style: kTextStyle.copyWith(
+                          fontSize: 18, fontWeight: FontWeight.bold),
                     ),
                   ),
                   Divider(),
                   ListTile(
                     leading: Image.asset('assets/images/paypal.png'),
+                    title: Text(
+                      'PayPal',
+                      style: kTextStyle.copyWith(
+                          fontSize: 18, fontWeight: FontWeight.bold),
+                    ),
                     trailing: Text(
                       '\$100',
-                      style: kTextStyle.copyWith(fontSize: 18),
+                      style: kTextStyle.copyWith(
+                          fontSize: 18, fontWeight: FontWeight.bold),
                     ),
                   ),
                 ],
@@ -76,13 +115,13 @@ class _MyAccountState extends State<MyAccount> {
                 onTap: () {
                   // Get.to(() =>  CreateBudget());
                 },
-                buttonText: 'Continue',
+                buttonText: '+ Add new Wallet',
                 widthPercent: Get.width * 0.4,
                 buttonColor: AppColor.violetColor,
                 textColor: AppColor.lightVioletColor,
               ),
             ),
-            displaySizedBox(height: Get.height * 0.033),
+            displaySizedBox(height: Get.height * 0.04),
           ],
         ),
       ),
