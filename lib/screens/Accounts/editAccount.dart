@@ -1,4 +1,6 @@
 import 'package:expensemanager/Utils/appColors.dart';
+import 'package:expensemanager/Utils/appConst.dart';
+import 'package:expensemanager/Utils/data.dart';
 import 'package:expensemanager/Widgets/bottomCard.dart';
 import 'package:expensemanager/Widgets/button.dart';
 import 'package:expensemanager/Widgets/textField.dart';
@@ -29,10 +31,11 @@ class _EditAccountState extends State<EditAccount> {
           borderRadius: BorderRadius.only(
               topLeft: Radius.circular(32), topRight: Radius.circular(32)),
         ),
-        height: Get.height * 0.33,
+        height: Get.height * 0.5,
         child: Container(
           padding: EdgeInsets.symmetric(horizontal: 16),
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               // displaySizedBox(height: Get.height * 0.025),
@@ -53,6 +56,26 @@ class _EditAccountState extends State<EditAccount> {
                   return (val.isEmpty) ? "*Required" : null;
                 },
               ),
+
+              Text(
+                'Bank',
+                style: kTextStyle.copyWith(),
+              ),
+              Container(
+                height: Get.height * 0.12,
+                child: GridView.builder(
+                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: 4, childAspectRatio: 2),
+                    itemCount: 8,
+                    shrinkWrap: true,
+                    physics: NeverScrollableScrollPhysics(),
+                    itemBuilder: (context, i) {
+                      return Container(
+                        child: Image.asset(gridList[i]),
+                      );
+                    }),
+              ),
+              // displaySizedBox(height: Get.height * 0.03),
               Button(
                 onTap: () {
                   Get.to(() => AddAccount());

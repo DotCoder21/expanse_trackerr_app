@@ -3,7 +3,11 @@ import 'dart:ui';
 import 'package:expensemanager/Utils/appColors.dart';
 import 'package:expensemanager/Utils/appConst.dart';
 import 'package:expensemanager/Utils/data.dart';
+import 'package:expensemanager/Widgets/lineChart.dart';
 import 'package:expensemanager/Widgets/sizedBox.dart';
+import 'package:expensemanager/screens/Add_To_Home/newExpense.dart';
+import 'package:expensemanager/screens/Add_To_Home/newIncome.dart';
+import 'package:expensemanager/screens/Add_To_Home/newTranfer.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -31,19 +35,34 @@ class _HomePageState extends State<HomePage> {
         heroTag: UniqueKey(),
         backgroundColor: Colors.greenAccent,
         onPressed: fechar,
-        child: Icon(Icons.add),
+        child: InkWell(
+          onTap: () {
+            Get.to(() => NewIncome());
+          },
+          child: Image.asset(
+            'assets/images/greenCamera.png',
+          ),
+        ),
       ),
       FloatingActionButton(
         heroTag: UniqueKey(),
         backgroundColor: Colors.indigoAccent,
         onPressed: fechar,
-        child: Icon(Icons.camera),
+        child: InkWell(
+            onTap: () {
+              Get.to(() => NewTransfer());
+            },
+            child: Image.asset('assets/images/transactionimage.png')),
       ),
       FloatingActionButton(
         heroTag: UniqueKey(),
         backgroundColor: Colors.orangeAccent,
         onPressed: fechar,
-        child: Icon(Icons.card_giftcard),
+        child: InkWell(
+            onTap: () {
+              Get.to(() => NewExpense());
+            },
+            child: Image.asset('assets/images/Camera.png')),
       ),
     ];
     super.initState();
@@ -63,25 +82,7 @@ class _HomePageState extends State<HomePage> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     // crossAxisAlignment: CrossAxisAlignment.end,
                     children: [
-                      Container(
-                        height: Get.height * 0.036,
-                        width: Get.width * 0.070,
-                        //width: 32,
-                        decoration: BoxDecoration(
-                            shape: BoxShape.circle,
-                            border: Border.all(
-                                width: 2, color: AppColor.violetColor)),
-                        child: Container(
-                          height: Get.height * 0.034,
-
-                          width: Get.width * 0.034,
-                          // width: 30,
-                          child: CircleAvatar(
-                            // maxRadius: 15,
-                            backgroundColor: Colors.blueGrey,
-                          ),
-                        ),
-                      ),
+                      Image.asset('assets/icons/05.png'),
                       Container(
                         height: Get.height * 0.038,
                         width: Get.width * 0.25,
@@ -144,6 +145,7 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ),
                 displaySizedBox(height: Get.height * 0.01),
+                LineChartt(),
                 Container(
                   height: Get.height * 0.040,
                   child: ListView.builder(
@@ -291,19 +293,35 @@ class _HomePageState extends State<HomePage> {
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: <Widget>[
               IconButton(
-                icon: Icon(Icons.menu),
+                icon: Icon(
+                  Icons.home,
+                  size: 30,
+                  color: AppColor.lightTextColor,
+                ),
                 onPressed: () {},
               ),
               IconButton(
-                icon: Icon(Icons.search),
+                icon: ImageIcon(
+                  AssetImage('assets/icons/transactionIcon.png'),
+                  size: 30,
+                  color: AppColor.lightTextColor,
+                ),
                 onPressed: () {},
               ),
               IconButton(
-                icon: Icon(Icons.menu),
+                icon: ImageIcon(
+                  AssetImage('assets/icons/pie-chart.png'),
+                  size: 30,
+                  color: AppColor.lightTextColor,
+                ),
                 onPressed: () {},
               ),
               IconButton(
-                icon: Icon(Icons.search),
+                icon: Icon(
+                  Icons.person,
+                  size: 30,
+                  color: AppColor.lightTextColor,
+                ),
                 onPressed: () {},
               )
             ],

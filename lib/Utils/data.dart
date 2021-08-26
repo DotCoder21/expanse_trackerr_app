@@ -42,3 +42,14 @@ var cardList = [
     'time': '10:00 AM',
   }
 ];
+
+List<String> gridList = [
+  'assets/images/Chase2.png',
+  'assets/images/Paypal2.png',
+  'assets/images/Citi2.png',
+  'assets/images/Jago.png',
+  'assets/images/Mandiri.png',
+  'assets/images/Bank Of America.png',
+  'assets/images/BCA.png',
+  'assets/images/See Other.png',
+];
