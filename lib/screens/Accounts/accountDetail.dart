@@ -1,5 +1,6 @@
 import 'package:expensemanager/Utils/appColors.dart';
 import 'package:expensemanager/Utils/appConst.dart';
+import 'package:expensemanager/Utils/data.dart';
 import 'package:expensemanager/Widgets/sizedBox.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
@@ -11,50 +12,6 @@ class AccountDetail extends StatefulWidget {
 }
 
 class _AccountDetailState extends State<AccountDetail> {
-  var cardList = [
-    {
-      'image': 'assets/images/Frame 5.png',
-      'title': 'Shopping',
-      'subTitle': 'By Some Grosary',
-      'price': '\$112',
-      'time': '10:00 AM',
-    },
-    {
-      'image': 'assets/images/Subscribtion 5.png',
-      'title': 'Subscription',
-      'subTitle': 'Disney+ Annual..',
-      'price': '\$112',
-      'time': '10:00 AM',
-    },
-    {
-      'image': 'assets/images/Food 5.png',
-      'title': 'Food',
-      'subTitle': 'Buy a ramen',
-      'price': '\$112',
-      'time': '10:00 AM',
-    },
-    {
-      'image': 'assets/images/Frame 5.png',
-      'title': 'Salary',
-      'subTitle': 'Salary for July',
-      'price': '\$112',
-      'time': '10:00 AM',
-    },
-    {
-      'image': 'assets/images/transportation 5.png',
-      'title': 'Transportation',
-      'subTitle': 'Charging Tesla',
-      'price': '\$112',
-      'time': '10:00 AM',
-    },
-    {
-      'image': 'assets/images/transportation 5.png',
-      'title': 'Transportation',
-      'subTitle': 'Charging Tesla',
-      'price': '\$112',
-      'time': '10:00 AM',
-    }
-  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(

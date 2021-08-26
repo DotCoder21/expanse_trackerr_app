@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:expensemanager/Utils/appColors.dart';
 import 'package:expensemanager/Utils/appConst.dart';
+import 'package:expensemanager/Utils/data.dart';
 import 'package:expensemanager/Widgets/sizedBox.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -196,59 +197,74 @@ class _HomePageState extends State<HomePage> {
                     )
                   ],
                 ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 5),
-                  child: Container(
-                    height: Get.height * 0.13,
+                Container(
+                  height: Get.height,
+                  child: ListView.builder(
+                      itemCount: cardList.length,
+                      physics: NeverScrollableScrollPhysics(),
+                      scrollDirection: Axis.vertical,
+                      shrinkWrap: true,
+                      itemBuilder: (context, i) {
+                        return Padding(
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 5, vertical: 10),
+                          child: Container(
+                            height: Get.height * 0.12,
 
-                    // height: 89,
-                    width: double.infinity,
-                    padding: EdgeInsets.symmetric(horizontal: 17),
-                    decoration: BoxDecoration(
-                        //  color: Colors.green,
-                        //color: AppColor.cardBackGroundColor,
-                        borderRadius: BorderRadius.circular(24)),
-                    child: Row(
-                      // crossAxisAlignment: CrossAxisAlignment.,
+                            // height: 89,
+                            width: double.infinity,
+                            padding: EdgeInsets.symmetric(horizontal: 17),
+                            decoration: BoxDecoration(
+                                // color: AppColor.lightTextColor,
+                                //  color: Colors.green,
+                                color: AppColor.cardBackGroundColor,
+                                borderRadius: BorderRadius.circular(24)),
+                            child: Row(
+                              // crossAxisAlignment: CrossAxisAlignment.,
 
-                      children: [
-                        Container(
-                            child: Image.asset('assets/images/Frame 5.png')),
-                        displaySizedBox(width: 19),
-                        Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              'Shopping',
-                              style: kTextStyle.copyWith(fontSize: 16),
+                              children: [
+                                Container(
+                                    child: Image.asset(cardList[i]['image'])),
+                                displaySizedBox(width: 19),
+                                Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      cardList[i]['title'],
+                                      style: kTextStyle.copyWith(fontSize: 16),
+                                    ),
+                                    Text(
+                                      cardList[i]['subTitle'],
+                                      style: kTextStyle.copyWith(
+                                          color: AppColor.lightTextColor,
+                                          fontSize: 13),
+                                    ),
+                                  ],
+                                ),
+                                Spacer(),
+                                Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Text(
+                                      cardList[i]['price'],
+                                      style: kTextStyle.copyWith(
+                                          color: AppColor.redColor,
+                                          fontSize: 14),
+                                    ),
+                                    Text(
+                                      cardList[i]['time'],
+                                      style: kTextStyle.copyWith(
+                                          color: AppColor.lightTextColor,
+                                          fontSize: 13),
+                                    ),
+                                  ],
+                                )
+                              ],
                             ),
-                            Text(
-                              'By some Grosary',
-                              style: kTextStyle.copyWith(
-                                  color: AppColor.lightTextColor, fontSize: 13),
-                            ),
-                          ],
-                        ),
-                        Spacer(),
-                        Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Text(
-                              '\$112',
-                              style: kTextStyle.copyWith(
-                                  color: AppColor.redColor, fontSize: 14),
-                            ),
-                            Text(
-                              '10:00 AM',
-                              style: kTextStyle.copyWith(
-                                  color: AppColor.lightTextColor, fontSize: 13),
-                            ),
-                          ],
-                        )
-                      ],
-                    ),
-                  ),
+                          ),
+                        );
+                      }),
                 ),
                 // FloatingActionButtonLocation.centerDocked,
               ],
