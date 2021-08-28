@@ -13,6 +13,7 @@ class EditBudget extends StatefulWidget {
 }
 
 class _EditBudgetState extends State<EditBudget> {
+  bool isRepeat = false;
   double _value = 0.0;
   @override
   Widget build(BuildContext context) {
@@ -66,10 +67,13 @@ class _EditBudgetState extends State<EditBudget> {
                         ],
                       ),
                       Spacer(),
-                      Icon(
-                        Icons.toggle_off_rounded,
-                        color: AppColor.lightVioletColor,
-                        size: 50,
+                      Switch(
+                        value: isRepeat,
+                        onChanged: (val) {
+                          isRepeat = val;
+                          setState(() {});
+                        },
+                        activeColor: AppColor.violetColor,
                       ),
                     ],
                   ),
