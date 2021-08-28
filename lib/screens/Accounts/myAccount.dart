@@ -3,6 +3,7 @@ import 'package:expensemanager/Utils/appConst.dart';
 import 'package:expensemanager/Widgets/buildAppBar.dart';
 import 'package:expensemanager/Widgets/button.dart';
 import 'package:expensemanager/Widgets/sizedBox.dart';
+import 'package:expensemanager/screens/Accounts/accountDetail.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -92,17 +93,22 @@ class _MyAccountState extends State<MyAccount> {
                     ),
                   ),
                   Divider(),
-                  ListTile(
-                    leading: Image.asset('assets/images/paypal.png'),
-                    title: Text(
-                      'PayPal',
-                      style: kTextStyle.copyWith(
-                          fontSize: 18, fontWeight: FontWeight.bold),
-                    ),
-                    trailing: Text(
-                      '\$100',
-                      style: kTextStyle.copyWith(
-                          fontSize: 18, fontWeight: FontWeight.bold),
+                  InkWell(
+                    onTap: () {
+                      Get.to(() => AccountDetail());
+                    },
+                    child: ListTile(
+                      leading: Image.asset('assets/images/paypal.png'),
+                      title: Text(
+                        'PayPal',
+                        style: kTextStyle.copyWith(
+                            fontSize: 18, fontWeight: FontWeight.bold),
+                      ),
+                      trailing: Text(
+                        '\$100',
+                        style: kTextStyle.copyWith(
+                            fontSize: 18, fontWeight: FontWeight.bold),
+                      ),
                     ),
                   ),
                 ],

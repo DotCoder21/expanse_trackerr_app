@@ -1,3 +1,6 @@
+import 'package:expensemanager/Utils/appColors.dart';
+import 'package:expensemanager/Utils/appConst.dart';
+import 'package:expensemanager/Widgets/sizedBox.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -43,3 +46,30 @@ class Button extends StatelessWidget {
   }
 
 }
+
+
+ Widget displaySmallButton(String imgPath,String title) {
+    return Container(
+padding: EdgeInsets.all(16),
+decoration: BoxDecoration(
+  color: AppColor.cardBackGroundColor,
+    border: Border.all(color: AppColor.lightTextColor),
+    borderRadius: BorderRadius.circular(24)),
+child: Row(
+  mainAxisAlignment: MainAxisAlignment.center,
+  children: [
+    Image.asset(
+      imgPath,
+      height: 32,
+      width: 32,
+    ),
+    displaySizedBox(width: Get.width * 0.02),
+    Text(
+      title,
+      style: kTextStyle.copyWith(
+          fontSize: 18, fontWeight: FontWeight.bold),
+    ),
+  ],
+),
+);
+  }

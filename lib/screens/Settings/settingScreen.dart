@@ -1,5 +1,10 @@
 import 'package:expensemanager/Utils/appColors.dart';
+import 'package:expensemanager/Utils/appConst.dart';
 import 'package:expensemanager/Widgets/buildAppBar.dart';
+import 'package:expensemanager/Widgets/sizedBox.dart';
+import 'package:expensemanager/screens/Settings/settingCurrency.dart';
+import 'package:expensemanager/screens/Settings/settingLanguage.dart';
+import 'package:expensemanager/screens/Settings/settingNotification.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -14,12 +19,16 @@ class _SettingPageState extends State<SettingPage> {
     {
       'title': 'Currency',
       'subTitle': "USD",
-      'handler': () {},
+      'handler': () {
+        Get.to(() => SettingCurrency());
+      },
     },
     {
       'title': 'Language',
       'subTitle': "English",
-      'handler': () {},
+      'handler': () {
+        Get.to(() => SettingsLanguage());
+      },
     },
     {
       'title': 'Theme',
@@ -34,7 +43,9 @@ class _SettingPageState extends State<SettingPage> {
     {
       'title': 'Notification',
       'subTitle': "",
-      'handler': () {},
+      'handler': () {
+        Get.to(() => SettingNotificationPage());
+      },
     },
     {
       'title': 'About',
@@ -66,12 +77,20 @@ class _SettingPageState extends State<SettingPage> {
                     Row(
                       children: [
                         Container(
-                          child: Text(settingList[index]['title']),
+                          child: Text(
+                            settingList[index]['title'],
+                            style: kTextStyle.copyWith(fontSize: 16),
+                          ),
                         ),
                         Spacer(),
                         Container(
-                          child: Text(settingList[index]['subTitle']),
+                          child: Text(
+                            settingList[index]['subTitle'],
+                            style: kTextStyle.copyWith(
+                                color: AppColor.lightTextColor, fontSize: 14),
+                          ),
                         ),
+                        displaySizedBox(width: Get.width * 0.01),
                         Icon(
                           Icons.arrow_forward_ios,
                           color: AppColor.violetColor,

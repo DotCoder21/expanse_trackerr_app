@@ -13,6 +13,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:radial_button/widget/circle_floating_button.dart';
 
+import 'Notification/notification.dart';
+
 class HomePage extends StatefulWidget {
   @override
   _HomePageState createState() => _HomePageState();
@@ -103,7 +105,11 @@ class _HomePageState extends State<HomePage> {
                           ),
                         ),
                       ),
-                      Image.asset('assets/icons/notifiaction.png'),
+                      InkWell(
+                          onTap: () {
+                            Get.to(() => NotificationScreen());
+                          },
+                          child: Image.asset('assets/icons/notifiaction.png')),
                     ],
                   ),
                 ),
@@ -283,50 +289,6 @@ class _HomePageState extends State<HomePage> {
         icon: Icons.add,
         duration: Duration(milliseconds: 1000),
         curveAnim: Curves.ease,
-      ),
-      bottomNavigationBar: BottomAppBar(
-        shape: CircularNotchedRectangle(),
-        notchMargin: 4.0,
-        child: Container(
-          child: Row(
-            mainAxisSize: MainAxisSize.max,
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: <Widget>[
-              IconButton(
-                icon: Icon(
-                  Icons.home,
-                  size: 30,
-                  color: AppColor.lightTextColor,
-                ),
-                onPressed: () {},
-              ),
-              IconButton(
-                icon: ImageIcon(
-                  AssetImage('assets/icons/transactionIcon.png'),
-                  size: 30,
-                  color: AppColor.lightTextColor,
-                ),
-                onPressed: () {},
-              ),
-              IconButton(
-                icon: ImageIcon(
-                  AssetImage('assets/icons/pie-chart.png'),
-                  size: 30,
-                  color: AppColor.lightTextColor,
-                ),
-                onPressed: () {},
-              ),
-              IconButton(
-                icon: Icon(
-                  Icons.person,
-                  size: 30,
-                  color: AppColor.lightTextColor,
-                ),
-                onPressed: () {},
-              )
-            ],
-          ),
-        ),
       ),
     );
   }

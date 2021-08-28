@@ -1,4 +1,6 @@
 import 'package:expensemanager/Utils/appColors.dart';
+import 'package:expensemanager/Utils/appConst.dart';
+import 'package:expensemanager/Utils/data.dart';
 import 'package:expensemanager/Widgets/bottomCard.dart';
 import 'package:expensemanager/Widgets/button.dart';
 import 'package:expensemanager/Widgets/textField.dart';
@@ -16,7 +18,7 @@ class _AddNewBankAccountState extends State<AddNewBankAccount> {
   @override
   Widget build(BuildContext context) {
     return BottomCard(
-      appBarText: 'Add New Account',
+      appBarText: 'Add New Bank Account',
       backgroundColor: AppColor.violetColor,
       balance: "180",
       title: 'balance',
@@ -26,7 +28,7 @@ class _AddNewBankAccountState extends State<AddNewBankAccount> {
           borderRadius: BorderRadius.only(
               topLeft: Radius.circular(32), topRight: Radius.circular(32)),
         ),
-        height: Get.height * 0.33,
+        height: Get.height * 0.5,
         child: Container(
           padding: EdgeInsets.symmetric(horizontal: 16),
           child: Column(
@@ -49,6 +51,24 @@ class _AddNewBankAccountState extends State<AddNewBankAccount> {
                 validaterHandler: (val) {
                   return (val.isEmpty) ? "*Required" : null;
                 },
+              ),
+              Text(
+                'Bank',
+                style: kTextStyle.copyWith(),
+              ),
+              Container(
+                height: Get.height * 0.12,
+                child: GridView.builder(
+                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: 4, childAspectRatio: 2),
+                    itemCount: 8,
+                    shrinkWrap: true,
+                    physics: NeverScrollableScrollPhysics(),
+                    itemBuilder: (context, i) {
+                      return Container(
+                        child: Image.asset(gridList[i]),
+                      );
+                    }),
               ),
               //  GridView.builder(gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 4), itemBuilder: ),
               Button(

@@ -2,6 +2,7 @@ import 'package:expensemanager/Utils/appColors.dart';
 import 'package:expensemanager/Utils/appConst.dart';
 import 'package:expensemanager/Utils/data.dart';
 import 'package:expensemanager/Widgets/sizedBox.dart';
+import 'package:expensemanager/screens/Accounts/editAccount.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:get/get.dart';
@@ -30,11 +31,16 @@ class _AccountDetailState extends State<AccountDetail> {
         ),
         centerTitle: true,
         actions: [
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20),
-            child: ImageIcon(
-              AssetImage('assets/icons/pen.png'),
-              color: Colors.black,
+          InkWell(
+            onTap: () {
+              Get.to(() => EditAccount());
+            },
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              child: ImageIcon(
+                AssetImage('assets/icons/pen.png'),
+                color: Colors.black,
+              ),
             ),
           )
         ],

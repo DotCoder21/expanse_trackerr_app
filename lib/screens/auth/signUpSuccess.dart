@@ -3,9 +3,10 @@ import 'dart:async';
 import 'package:expensemanager/Utils/appColors.dart';
 import 'package:expensemanager/Utils/appConst.dart';
 import 'package:expensemanager/Widgets/sizedBox.dart';
-import 'package:expensemanager/screens/homePage.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
+import '../home.dart';
 
 class SignUpSuccess extends StatefulWidget {
   @override
@@ -17,7 +18,7 @@ class _SignUpSuccessState extends State<SignUpSuccess> {
     //todo look it Splash Screen Duration
     Timer(Duration(seconds: 3), () {
       //todo Change this to OnBoardingScreen
-      Get.to(HomePage());
+      Get.to(Home());
     });
   }
 

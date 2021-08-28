@@ -1,7 +1,10 @@
 import 'package:expensemanager/Utils/appColors.dart';
 import 'package:expensemanager/Utils/appConst.dart';
+import 'package:expensemanager/Widgets/bottomSheet.dart';
 import 'package:expensemanager/Widgets/button.dart';
 import 'package:expensemanager/Widgets/sizedBox.dart';
+import 'package:expensemanager/screens/Budget/budget.dart';
+import 'package:expensemanager/screens/Budget/editBudget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -31,10 +34,20 @@ class _BudgetDetailState extends State<BudgetDetail> {
                   style: kTextStyle.copyWith(
                       fontSize: 18, fontWeight: FontWeight.bold),
                 ),
-                Icon(
-                  Icons.delete,
-                  size: 25,
-                  color: Colors.black,
+                InkWell(
+                  onTap: () {
+                    displayTranSuccessful('Remove this budget?',
+                        'Are you sure you want to remove this budget?', () {
+                      Get.to(() => BudgetScreen());
+                    }, () {
+                      Get.back();
+                    });
+                  },
+                  child: Icon(
+                    Icons.delete,
+                    size: 25,
+                    color: Colors.black,
+                  ),
                 ),
               ],
             ),
@@ -112,64 +125,7 @@ class _BudgetDetailState extends State<BudgetDetail> {
             Spacer(),
             Button(
               onTap: () {
-                Get.bottomSheet(
-                  Container(
-                    height: Get.height * 0.3,
-                    width: Get.width,
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(24),
-                        topRight: Radius.circular(24),
-                      ),
-                    ),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        Text(
-                          "Remove this budget?",
-                          style: kTextStyle.copyWith(
-                              color: Colors.black, fontSize: 18),
-                        ),
-                        Container(
-                          padding: EdgeInsets.symmetric(horizontal: 10),
-                          child: Text(
-                            "Are you sure do you want to remove this budget?",
-                            maxLines: 2,
-                            textAlign: TextAlign.center,
-                            style: kTextStyle.copyWith(
-                                color: AppColor.lightTextColor,
-                                fontSize: 16,
-                                fontWeight: FontWeight.bold),
-                          ),
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
-                            Button(
-                              buttonColor: AppColor.lightVioletColor,
-                              buttonText: 'No',
-                              onTap: () {
-                                // Get.to(()=>SignInScreen());
-                              },
-                              textColor: AppColor.violetColor,
-                              widthPercent: 0.43,
-                            ),
-                            Button(
-                              buttonColor: AppColor.violetColor,
-                              buttonText: 'Yes',
-                              onTap: () {
-                                //  Get.to(()=>SignUpScreen());
-                              },
-                              textColor: AppColor.lightVioletColor,
-                              widthPercent: 0.43,
-                            ),
-                          ],
-                        )
-                      ],
-                    ),
-                  ),
-                );
+                Get.to(() => EditBudget());
               },
               buttonText: 'Edit',
               widthPercent: double.infinity,

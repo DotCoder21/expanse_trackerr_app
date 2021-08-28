@@ -15,7 +15,7 @@ class _ForgotPasswordEmailSendState extends State<ForgotPasswordEmailSend> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-       backgroundColor: AppColor.backgroundColor,
+      backgroundColor: AppColor.backgroundColor,
       body: Container(
         padding: EdgeInsets.symmetric(horizontal: 32),
         child: Column(
@@ -25,7 +25,7 @@ class _ForgotPasswordEmailSendState extends State<ForgotPasswordEmailSend> {
               //height: 32,
             ),
             Image.asset(
-              'assets/images/Illustration.png',
+              'assets/images/massge.png',
               fit: BoxFit.fill,
             ),
             SizedBox(

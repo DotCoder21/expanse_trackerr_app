@@ -2,6 +2,8 @@ import 'package:expensemanager/Utils/appColors.dart';
 import 'package:expensemanager/Utils/appConst.dart';
 import 'package:expensemanager/Widgets/bottomSheet.dart';
 import 'package:expensemanager/Widgets/sizedBox.dart';
+import 'package:expensemanager/screens/Accounts/myAccount.dart';
+import 'package:expensemanager/screens/Settings/settingScreen.dart';
 import 'package:expensemanager/screens/auth/signUpScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -57,9 +59,17 @@ class _ProfileState extends State<Profile> {
 
               child: Column(
                 children: [
-                  menuItem('assets/images/wallet.png', 'Account'),
+                  InkWell(
+                      onTap: () {
+                        Get.to(() => MyAccount());
+                      },
+                      child: menuItem('assets/images/wallet.png', 'Account')),
                   Divider(),
-                  menuItem('assets/images/flower.png', 'Setting'),
+                  InkWell(
+                      onTap: () {
+                        Get.to(() => SettingPage());
+                      },
+                      child: menuItem('assets/images/flower.png', 'Setting')),
                   Divider(),
                   menuItem('assets/images/download.png', 'Export Data'),
                   Divider(),

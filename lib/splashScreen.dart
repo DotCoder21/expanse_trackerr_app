@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:expensemanager/Utils/appColors.dart';
 import 'package:expensemanager/Utils/appConst.dart';
-import 'package:expensemanager/screens/auth/signUpScreen.dart';
+import 'package:expensemanager/screens/onBoarding/OnBoarding.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -16,7 +16,7 @@ class _SplashScreenState extends State<SplashScreen> {
     //todo look it Splash Screen Duration
     Timer(Duration(seconds: 3), () {
       //todo Change this to OnBoardingScreen
-      Get.to(SignUpScreen());
+      Get.to(OnBoarding());
     });
   }
 

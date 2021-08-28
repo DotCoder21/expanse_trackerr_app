@@ -7,6 +7,8 @@ import 'package:expensemanager/screens/auth/signInScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../homePage.dart';
+
 class SignUpScreen extends StatefulWidget {
   @override
   _SignUpScreenState createState() => _SignUpScreenState();
@@ -99,7 +101,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 height: 27,
               ),
               Button(
-                onTap: () {},
+                onTap: () {
+                  Get.to(()=>HomePage());
+                },
                 buttonText: 'Sign Up',
                 widthPercent: double.infinity,
                 buttonColor: AppColor.violetColor,

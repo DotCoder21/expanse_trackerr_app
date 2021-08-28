@@ -2,10 +2,9 @@ import 'package:expensemanager/Utils/appColors.dart';
 import 'package:expensemanager/Widgets/bottomCard.dart';
 import 'package:expensemanager/Widgets/button.dart';
 import 'package:expensemanager/Widgets/textField.dart';
+import 'package:expensemanager/screens/homePage.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
-import 'addAccount.dart';
 
 //import 'addNewBankAccount.dart';
 
@@ -55,7 +54,7 @@ class _AddWalletAccountState extends State<AddWalletAccount> {
               ),
               Button(
                 onTap: () {
-                  Get.to(() => AddAccount());
+                  Get.to(() => HomePage());
                 },
                 buttonText: 'Continue',
                 widthPercent: double.infinity,
