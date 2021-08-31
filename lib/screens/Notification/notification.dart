@@ -4,7 +4,15 @@ import 'package:expensemanager/Widgets/sizedBox.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class NotificationScreen extends StatelessWidget {
+class NotificationScreen extends StatefulWidget {
+  @override
+  _NotificationScreenState createState() => _NotificationScreenState();
+}
+
+class _NotificationScreenState extends State<NotificationScreen> {
+  String dropdownvalue = '';
+  var items = ['', 'Banana', 'Grapes', 'Orange', 'watermelon', 'Pineapple'];
+
   var notificationList = [
     {
       'title': "Shopping budget has exceeds the..",
@@ -30,9 +38,14 @@ class NotificationScreen extends StatelessWidget {
         centerTitle: true,
         backgroundColor: Colors.transparent,
         elevation: 0,
-        leading: Icon(
-          Icons.arrow_back,
-          color: Colors.black,
+        leading: InkWell(
+          onTap: () {
+            Get.back();
+          },
+          child: Icon(
+            Icons.arrow_back,
+            color: Colors.black,
+          ),
         ),
         title: Text(
           'Notification',
@@ -41,12 +54,8 @@ class NotificationScreen extends StatelessWidget {
         ),
         actions: [
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16),
-            child: Icon(
-              Icons.more_horiz,
-              color: Colors.black,
-            ),
-          ),
+              padding: const EdgeInsets.symmetric(horizontal: 16),
+              child: Icon(Icons.more_vert, color: Colors.black))
         ],
       ),
       backgroundColor: AppColor.backgroundColor,
@@ -86,8 +95,8 @@ class NotificationScreen extends StatelessWidget {
                                     children: [
                                       Text(
                                         notificationList[i]['title'],
-                                        style:
-                                            kTextStyle.copyWith(fontSize: 16),
+                                        style: kTextStyle.copyWith(
+                                            fontSize: Get.size.height * 0.02),
                                         maxLines: 1,
                                         overflow: TextOverflow.ellipsis,
                                       ),
@@ -95,7 +104,7 @@ class NotificationScreen extends StatelessWidget {
                                       Text(
                                         notificationList[i]['subTitle'],
                                         style: kTextStyle.copyWith(
-                                            fontSize: 13,
+                                            fontSize: Get.size.height * 0.016,
                                             color: AppColor.lightTextColor),
                                         maxLines: 1,
                                         overflow: TextOverflow.ellipsis,

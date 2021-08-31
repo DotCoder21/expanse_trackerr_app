@@ -29,47 +29,53 @@ class BottomCard extends StatefulWidget {
 class _BottomCardState extends State<BottomCard> {
   @override
   Widget build(BuildContext context) {
+    // final double bottom = MediaQuery.of(context).viewInsets.bottom;
     return Scaffold(
+      // resizeToAvoidBottomInset: true,
       backgroundColor: widget.backgroundColor,
       appBar: buildAppBar(
           title: widget.appBarText,
           color: Colors.white,
           actionIcon: widget.actionIcon),
-      body: Container(
-        color: Colors.transparent,
-        width: double.infinity,
-        height: double.infinity,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.end,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Spacer(),
-            Padding(
-              padding: const EdgeInsets.only(left: 16),
-              child: Text(
-                widget.title,
-                style: kTextStyle.copyWith(
-                    color: AppColor.lightVioletColor,
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold),
+      body: SingleChildScrollView(
+        reverse: true,
+        child: Container(
+          color: Colors.transparent,
+          // width: Get.width,
+          // height: Get.height,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.end,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              //Spacer(),
+              displaySizedBox(height: Get.height * 0.22),
+              Padding(
+                padding: const EdgeInsets.only(left: 16),
+                child: Text(
+                  widget.title,
+                  style: kTextStyle.copyWith(
+                      color: AppColor.lightVioletColor,
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold),
+                ),
               ),
-            ),
-            displaySizedBox(
-              height: Get.height * 0.013,
-            ),
-            Padding(
-              padding: const EdgeInsets.only(left: 16),
-              child: Text(
-                '\$' + widget.balance,
-                style: kTextStyle.copyWith(
-                    fontSize: 64,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white),
+              displaySizedBox(
+                height: Get.height * 0.013,
               ),
-            ),
-            displaySizedBox(height: Get.height * 0.01),
-            widget.bottomContainer,
-          ],
+              Padding(
+                padding: const EdgeInsets.only(left: 16),
+                child: Text(
+                  '\$' + widget.balance,
+                  style: kTextStyle.copyWith(
+                      fontSize: 64,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white),
+                ),
+              ),
+              // displaySizedBox(height: Get.height * 0.01),
+              widget.bottomContainer,
+            ],
+          ),
         ),
       ),
     );

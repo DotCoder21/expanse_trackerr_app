@@ -13,6 +13,20 @@ class Trasections extends StatefulWidget {
 }
 
 class _TrasectionsState extends State<Trasections> {
+  String dropdownvalue = 'Months';
+  var items = [
+    'Months',
+    'Junuary',
+    'Feruary',
+    'March',
+    'April',
+    'May',
+    'Jun',
+    'July',
+    'Auguest',
+    'November',
+    'December'
+  ];
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -21,32 +35,56 @@ class _TrasectionsState extends State<Trasections> {
         // appBar:
         body: Container(
           height: Get.height - 20,
-          padding: EdgeInsets.symmetric(
-            horizontal: 10,
-          ),
+          padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
           child: SingleChildScrollView(
             child: Column(
               children: [
                 Row(
                   children: [
                     Container(
-                      child: Row(
-                        children: [
-                          Icon(Icons.arrow_drop_down),
-                          Text('Month'),
-                        ],
+                      padding: EdgeInsets.symmetric(horizontal: 10),
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(8),
+                          border: Border.all(color: AppColor.lightTextColor)),
+                      child: DropdownButtonHideUnderline(
+                        child: DropdownButton(
+                          value: dropdownvalue,
+                          icon: Icon(Icons.keyboard_arrow_down),
+                          items: items.map((String items) {
+                            return DropdownMenuItem(
+                                value: items, child: Text(items));
+                          }).toList(),
+                          onChanged: (String newValue) {
+                            setState(() {
+                              dropdownvalue = newValue;
+                            });
+                          },
+                        ),
                       ),
                     ),
                     Spacer(),
-                    Padding(
-                      padding: EdgeInsets.all(8),
-                      child: Icon(Icons.menu),
+                    Container(
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(8),
+                          border: Border.all(
+                              color: AppColor.lightTextColor.withOpacity(0.5))),
+                      child: Padding(
+                        padding: EdgeInsets.all(8),
+                        child: Icon(
+                          Icons.menu,
+                          size: 30,
+                        ),
+                      ),
                     )
                   ],
                 ),
+                displaySizedBox(height: Get.height * 0.02),
                 displayTextField(
                   labelText: 'See your financial report',
-                  suffixIcon: Icon(Icons.arrow_forward_ios),
+                  suffixIcon: Icon(
+                    Icons.arrow_forward_ios,
+                    color: AppColor.violetColor,
+                  ),
                   validaterHandler: (val) {
                     return null;
                   },
@@ -78,19 +116,21 @@ class _TrasectionsState extends State<Trasections> {
                         },
                         child: Padding(
                           padding: const EdgeInsets.symmetric(
-                              horizontal: 5, vertical: 10),
+                              horizontal: 0, vertical: 5.0),
                           child: Container(
                             height: Get.height * 0.12,
+
                             // height: 89,
                             width: double.infinity,
-                            padding: EdgeInsets.symmetric(horizontal: 17),
+                            padding: EdgeInsets.symmetric(horizontal: 16),
                             decoration: BoxDecoration(
                                 // color: AppColor.lightTextColor,
-                                //  color: Colors.green,
-                                color: AppColor.cardBackGroundColor,
-                                borderRadius: BorderRadius.circular(24)),
+                                color: Colors.grey.withOpacity(0.09),
+                                // color: AppColor.cardBackGroundColor,
+                                borderRadius: BorderRadius.circular(16)),
                             child: Row(
                               // crossAxisAlignment: CrossAxisAlignment.,
+
                               children: [
                                 Container(
                                     child: Image.asset(cardList[i]['image'])),
@@ -101,8 +141,11 @@ class _TrasectionsState extends State<Trasections> {
                                   children: [
                                     Text(
                                       cardList[i]['title'],
-                                      style: kTextStyle.copyWith(fontSize: 16),
+                                      style: kTextStyle.copyWith(
+                                          fontSize: 16,
+                                          fontWeight: FontWeight.w500),
                                     ),
+                                    SizedBox(height: 5.0),
                                     Text(
                                       cardList[i]['subTitle'],
                                       style: kTextStyle.copyWith(
@@ -119,8 +162,11 @@ class _TrasectionsState extends State<Trasections> {
                                       cardList[i]['price'],
                                       style: kTextStyle.copyWith(
                                           color: AppColor.redColor,
-                                          fontSize: 14),
+                                          fontSize: 14,
+                                          fontWeight: FontWeight.w700,
+                                          letterSpacing: 1.0),
                                     ),
+                                    SizedBox(height: 5.0),
                                     Text(
                                       cardList[i]['time'],
                                       style: kTextStyle.copyWith(

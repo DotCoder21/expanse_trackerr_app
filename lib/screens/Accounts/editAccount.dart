@@ -31,7 +31,7 @@ class _EditAccountState extends State<EditAccount> {
           borderRadius: BorderRadius.only(
               topLeft: Radius.circular(32), topRight: Radius.circular(32)),
         ),
-        height: Get.height * 0.5,
+        height: Get.height * 0.53,
         child: Container(
           padding: EdgeInsets.symmetric(horizontal: 16),
           child: Column(

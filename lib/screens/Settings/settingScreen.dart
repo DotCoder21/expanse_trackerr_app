@@ -76,10 +76,20 @@ class _SettingPageState extends State<SettingPage> {
                   children: [
                     Row(
                       children: [
-                        Container(
-                          child: Text(
-                            settingList[index]['title'],
-                            style: kTextStyle.copyWith(fontSize: 16),
+                        InkWell(
+                          onTap: () {
+                            //
+                            if (settingList[0]['title'] == 'Currency') {
+                              Get.to(() => SettingCurrency);
+                            } else if (settingList[1]['title'] == 'Languages') {
+                              Get.to(() => SettingsLanguage());
+                            }
+                          },
+                          child: Container(
+                            child: Text(
+                              settingList[index]['title'],
+                              style: kTextStyle.copyWith(fontSize: 16),
+                            ),
                           ),
                         ),
                         Spacer(),

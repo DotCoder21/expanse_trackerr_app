@@ -16,6 +16,19 @@ class FinancialReportDetails extends StatefulWidget {
 }
 
 class _FinancialReportDetailsState extends State<FinancialReportDetails> {
+  String dropdownvalue = 'Junuary';
+  var items = [
+    'Junuary',
+    'Feruary',
+    'March',
+    'April',
+    'May',
+    'Jun',
+    'July',
+    'Auguest',
+    'November',
+    'December'
+  ];
   bool isLineChart = false;
   bool isExpense = false;
   @override
@@ -24,6 +37,7 @@ class _FinancialReportDetailsState extends State<FinancialReportDetails> {
       appBar: buildAppBar(
           actionIcon: null, color: Colors.black, title: 'Financial Report'),
       body: Container(
+        // color: Colors.green,
         padding: EdgeInsets.symmetric(horizontal: 10),
         height: Get.height - AppBar().preferredSize.height - 20,
         child: SingleChildScrollView(
@@ -32,31 +46,36 @@ class _FinancialReportDetailsState extends State<FinancialReportDetails> {
               Row(
                 children: [
                   Container(
-                    padding: EdgeInsets.all(16),
+                    height: 40,
+                    padding: EdgeInsets.all(5),
                     decoration: BoxDecoration(
-                        color: AppColor.cardBackGroundColor,
-                        border: Border.all(color: AppColor.lightTextColor),
-                        borderRadius: BorderRadius.circular(24)),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Icon(Icons.arrow_drop_down),
-                        displaySizedBox(width: Get.width * 0.02),
-                        Text(
-                          'Month',
-                          style: kTextStyle.copyWith(
-                              fontSize: 18, fontWeight: FontWeight.bold),
-                        ),
-                      ],
+                        // color: AppColor.cardBackGroundColor,
+                        border: Border.all(color: Colors.grey.withOpacity(0.6)),
+                        borderRadius: BorderRadius.circular(8.0)),
+                    child: DropdownButtonHideUnderline(
+                      child: DropdownButton(
+                        value: dropdownvalue,
+                        icon: Icon(Icons.keyboard_arrow_down),
+                        items: items.map((String items) {
+                          return DropdownMenuItem(
+                              value: items, child: Text(items));
+                        }).toList(),
+                        onChanged: (String newValue) {
+                          setState(() {
+                            dropdownvalue = newValue;
+                          });
+                        },
+                      ),
                     ),
                   ),
                   Spacer(),
                   Container(
                     width: 98,
-                    height: 48,
+                    height: 40,
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(8),
-                        border: Border.all()),
+                        border:
+                            Border.all(color: Colors.grey.withOpacity(0.6))),
                     child: Row(
                       children: [
                         InkWell(
@@ -68,13 +87,14 @@ class _FinancialReportDetailsState extends State<FinancialReportDetails> {
                             height: 48,
                             width: 48,
                             decoration: BoxDecoration(
-                                color: isLineChart
-                                    ? AppColor.violetColor
-                                    : Colors.white,
-                                borderRadius: BorderRadius.only(
-                                  bottomLeft: Radius.circular(8),
-                                  topLeft: Radius.circular(8),
-                                )),
+                              color: isLineChart
+                                  ? AppColor.violetColor
+                                  : Colors.white,
+                              borderRadius: BorderRadius.only(
+                                bottomLeft: Radius.circular(8),
+                                topLeft: Radius.circular(8),
+                              ),
+                            ),
                             child: Icon(
                               Icons.linear_scale,
                               color: isLineChart
@@ -83,29 +103,35 @@ class _FinancialReportDetailsState extends State<FinancialReportDetails> {
                             ),
                           ),
                         ),
-                        Container(
-                            height: 48,
-                            width: 48,
-                            padding: EdgeInsets.all(5),
-                            decoration: BoxDecoration(
-                              color: isLineChart
-                                  ? Colors.white
-                                  : AppColor.violetColor,
-                              borderRadius: BorderRadius.only(
-                                bottomRight: Radius.circular(8),
-                                topRight: Radius.circular(8),
+                        InkWell(
+                          onTap: () {
+                            isLineChart = !isLineChart;
+                            setState(() {});
+                          },
+                          child: Container(
+                              height: 48,
+                              width: 48,
+                              padding: EdgeInsets.all(5),
+                              decoration: BoxDecoration(
+                                color: isLineChart
+                                    ? Colors.white
+                                    : AppColor.violetColor,
+                                borderRadius: BorderRadius.only(
+                                  bottomRight: Radius.circular(8),
+                                  topRight: Radius.circular(8),
+                                ),
                               ),
-                            ),
-                            child: Icon(
-                              Icons.pie_chart,
-                              color: isLineChart
-                                  ? AppColor.violetColor
-                                  : Colors.white,
-                            )
-                            // Image.asset('assets/icons/budget.png',
-                            //
-                            // ),
-                            ),
+                              child: Icon(
+                                Icons.pie_chart,
+                                color: isLineChart
+                                    ? AppColor.violetColor
+                                    : Colors.white,
+                              )
+                              // Image.asset('assets/icons/budget.png',
+                              //
+                              // ),
+                              ),
+                        ),
                       ],
                     ),
                   ),
@@ -120,16 +146,25 @@ class _FinancialReportDetailsState extends State<FinancialReportDetails> {
                         fontSize: 32, fontWeight: FontWeight.bold),
                   )),
               Container(
-                height: 160,
+                margin: EdgeInsets.only(bottom: 8.0, top: 5.0),
+                height: Get.height * 0.2,
                 width: Get.width,
-                color: AppColor.backgroundColor,
+                // color: AppColor.backgroundColor,
+                // decoration: BoxDecoration(boxShadow: [
+                //   BoxShadow(
+                //       blurRadius: 40,
+                //       //offset: Offset(0, 10),
+                //       color: Colors.black12,
+                //       spreadRadius: 0.1),
+                // ]),
                 child: isLineChart ? LineChartt() : PieChartSam(),
               ),
               displaySizedBox(height: 10),
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 15),
+                padding: const EdgeInsets.symmetric(horizontal: 0.0),
                 child: Card(
-                  color: AppColor.cardBackGroundColor,
+                  // color: AppColor.cardBackGroundColor,
+                  elevation: 0.5,
                   shape: StadiumBorder(),
                   child: Row(
                     children: [
@@ -156,17 +191,39 @@ class _FinancialReportDetailsState extends State<FinancialReportDetails> {
               ),
               displaySizedBox(height: 10),
               Container(
-                padding: EdgeInsets.symmetric(horizontal: 15),
+                padding: EdgeInsets.symmetric(horizontal: 5.0),
                 child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Icon(Icons.arrow_downward_rounded),
-                    displaySizedBox(width: Get.width * 0.03),
-                    Text('Trancation'),
-                    Spacer(),
-                    Image.asset('assets/icons/Button Icon.png'),
+                    Container(
+                      height: 40,
+                      padding: EdgeInsets.only(left: 10, right: 10),
+                      decoration: BoxDecoration(
+                        border: Border.all(
+                            width: 0.5, color: Colors.grey.withOpacity(0.6)),
+                        borderRadius: BorderRadius.circular(8.0),
+                      ),
+                      child: Row(
+                        children: [
+                          Icon(Icons.arrow_downward_rounded),
+                          displaySizedBox(width: Get.width * 0.03),
+                          Text('Trancation'),
+                        ],
+                      ),
+                    ),
+                    Container(
+                        height: 40,
+                        padding: EdgeInsets.only(left: 10, right: 10),
+                        decoration: BoxDecoration(
+                          border: Border.all(
+                              width: 0.5, color: Colors.grey.withOpacity(0.8)),
+                          borderRadius: BorderRadius.circular(8.0),
+                        ),
+                        child: Image.asset('assets/icons/Button Icon.png')),
                   ],
                 ),
               ),
+              SizedBox(height: 10),
               Container(
                 height: Get.height,
                 child: ListView.builder(
@@ -177,18 +234,17 @@ class _FinancialReportDetailsState extends State<FinancialReportDetails> {
                     itemBuilder: (context, i) {
                       return Padding(
                         padding: const EdgeInsets.symmetric(
-                            horizontal: 5, vertical: 10),
+                            horizontal: 5, vertical: 5.0),
                         child: Container(
                           height: Get.height * 0.12,
-
                           // height: 89,
                           width: double.infinity,
                           padding: EdgeInsets.symmetric(horizontal: 17),
                           decoration: BoxDecoration(
                               // color: AppColor.lightTextColor,
-                              //  color: Colors.green,
-                              color: AppColor.cardBackGroundColor,
-                              borderRadius: BorderRadius.circular(24)),
+                              // color: Colors.green,
+                              color: Colors.grey.withOpacity(0.09),
+                              borderRadius: BorderRadius.circular(16)),
                           child: Row(
                             // crossAxisAlignment: CrossAxisAlignment.,
 

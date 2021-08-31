@@ -25,9 +25,19 @@ class _HomeState extends State<Home> {
     return Scaffold(
       body: _list[index],
       bottomNavigationBar: BottomAppBar(
+        // color: AppColor.lightVioletColor,
+
         shape: CircularNotchedRectangle(),
         notchMargin: 4.0,
         child: Container(
+          decoration: BoxDecoration(
+              boxShadow: [
+                BoxShadow(
+                    blurRadius: 40, color: Colors.black12, spreadRadius: 5)
+              ],
+              borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(10), topRight: Radius.circular(10))),
+          // height: Get.height * 0.07,
           child: Row(
             mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -59,8 +69,8 @@ class _HomeState extends State<Home> {
                 },
               ),
               IconButton(
-                icon: ImageIcon(
-                  AssetImage('assets/icons/pie-chart.png'),
+                icon: Icon(
+                  Icons.pie_chart,
                   size: 30,
                   color: index == 2
                       ? AppColor.violetColor

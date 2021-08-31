@@ -16,6 +16,7 @@ class _MyAccountState extends State<MyAccount> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppColor.backgroundColor,
       appBar: buildAppBar(title: 'Account', color: Colors.black),
       body: Container(
         child: Column(
@@ -51,51 +52,82 @@ class _MyAccountState extends State<MyAccount> {
               padding: EdgeInsets.symmetric(horizontal: 20),
               child: Column(
                 children: [
-                  ListTile(
-                    leading: Image.asset('assets/images/wallet.png'),
-                    title: Text(
-                      'Wallet',
-                      style: kTextStyle.copyWith(
-                          fontSize: 18, fontWeight: FontWeight.bold),
-                    ),
-                    trailing: Text(
-                      '\$100',
-                      style: kTextStyle.copyWith(
-                          fontSize: 18, fontWeight: FontWeight.bold),
-                    ),
-                  ),
-                  Divider(),
-                  ListTile(
-                    leading: Image.asset('assets/images/chase.png'),
-                    title: Text(
-                      'Chase',
-                      style: kTextStyle.copyWith(
-                          fontSize: 18, fontWeight: FontWeight.bold),
-                    ),
-                    trailing: Text(
-                      '\$100',
-                      style: kTextStyle.copyWith(
-                          fontSize: 18, fontWeight: FontWeight.bold),
-                    ),
-                  ),
-                  Divider(),
-                  ListTile(
-                    leading: Image.asset('assets/images/citi.png'),
-                    title: Text(
-                      'Citi',
-                      style: kTextStyle.copyWith(
-                          fontSize: 18, fontWeight: FontWeight.bold),
-                    ),
-                    trailing: Text(
-                      '\$100',
-                      style: kTextStyle.copyWith(
-                          fontSize: 18, fontWeight: FontWeight.bold),
+                  InkWell(
+                    onTap: () {
+                      Get.to(() => AccountDetail(
+                            image: 'assets/images/wallet.png',
+                            text: 'Wallet',
+                            amount: 120,
+                          ));
+                    },
+                    child: ListTile(
+                      leading: Image.asset('assets/images/wallet.png'),
+                      title: Text(
+                        'Wallet',
+                        style: kTextStyle.copyWith(
+                            fontSize: 18, fontWeight: FontWeight.bold),
+                      ),
+                      trailing: Text(
+                        '\$120',
+                        style: kTextStyle.copyWith(
+                            fontSize: 18, fontWeight: FontWeight.bold),
+                      ),
                     ),
                   ),
                   Divider(),
                   InkWell(
                     onTap: () {
-                      Get.to(() => AccountDetail());
+                      Get.to(() => AccountDetail(
+                            image: 'assets/images/chase.png',
+                            text: 'Chase',
+                            amount: 10,
+                          ));
+                    },
+                    child: ListTile(
+                      leading: Image.asset('assets/images/chase.png'),
+                      title: Text(
+                        'Chase',
+                        style: kTextStyle.copyWith(
+                            fontSize: 18, fontWeight: FontWeight.bold),
+                      ),
+                      trailing: Text(
+                        '\$10',
+                        style: kTextStyle.copyWith(
+                            fontSize: 18, fontWeight: FontWeight.bold),
+                      ),
+                    ),
+                  ),
+                  Divider(),
+                  InkWell(
+                    onTap: () {
+                      Get.to(() => AccountDetail(
+                            image: 'assets/images/citi.png',
+                            text: 'Citi',
+                            amount: 600,
+                          ));
+                    },
+                    child: ListTile(
+                      leading: Image.asset('assets/images/citi.png'),
+                      title: Text(
+                        'Citi',
+                        style: kTextStyle.copyWith(
+                            fontSize: 18, fontWeight: FontWeight.bold),
+                      ),
+                      trailing: Text(
+                        '\$600',
+                        style: kTextStyle.copyWith(
+                            fontSize: 18, fontWeight: FontWeight.bold),
+                      ),
+                    ),
+                  ),
+                  Divider(),
+                  InkWell(
+                    onTap: () {
+                      Get.to(() => AccountDetail(
+                            image: 'assets/images/paypal.png',
+                            text: 'PayPal',
+                            amount: 700,
+                          ));
                     },
                     child: ListTile(
                       leading: Image.asset('assets/images/paypal.png'),
@@ -105,7 +137,7 @@ class _MyAccountState extends State<MyAccount> {
                             fontSize: 18, fontWeight: FontWeight.bold),
                       ),
                       trailing: Text(
-                        '\$100',
+                        '\$546',
                         style: kTextStyle.copyWith(
                             fontSize: 18, fontWeight: FontWeight.bold),
                       ),

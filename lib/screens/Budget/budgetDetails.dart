@@ -25,9 +25,14 @@ class _BudgetDetailState extends State<BudgetDetail> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Icon(
-                  Icons.arrow_back,
-                  color: Colors.black,
+                InkWell(
+                  onTap: () {
+                    Get.back();
+                  },
+                  child: Icon(
+                    Icons.arrow_back,
+                    color: Colors.black,
+                  ),
                 ),
                 Text(
                   'Detail budget',
@@ -56,7 +61,7 @@ class _BudgetDetailState extends State<BudgetDetail> {
               height: Get.height * 0.066,
               width: Get.width * 0.4,
               decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(24),
+                  borderRadius: BorderRadius.circular(8),
                   border: Border.all(color: AppColor.lightTextColor)),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,

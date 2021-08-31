@@ -7,7 +7,7 @@ import 'package:expensemanager/screens/auth/signInScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../homePage.dart';
+import '../home.dart';
 
 class SignUpScreen extends StatefulWidget {
   @override
@@ -88,21 +88,21 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       TextSpan(
                           text: 'By signing up you agree to the',
                           style: kTextStyle.copyWith(
-                              color: Colors.black, fontSize: 14)),
+                              color: Colors.black, fontSize: 16)),
                       TextSpan(
                           text: 'The term \n of services and privacy policy',
                           style: kTextStyle.copyWith(
-                              color: AppColor.violetColor, fontSize: 14)),
+                              color: AppColor.violetColor, fontSize: 16)),
                     ]),
                   )
                 ],
               ),
               SizedBox(
-                height: 27,
+                height: Get.height * 0.032,
               ),
               Button(
                 onTap: () {
-                  Get.to(()=>HomePage());
+                  Get.to(() => Home());
                 },
                 buttonText: 'Sign Up',
                 widthPercent: double.infinity,
@@ -123,7 +123,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
               Text(
                 'or with',
                 style: kTextStyle.copyWith(
-                    color: AppColor.lightTextColor, fontSize: 14),
+                    color: AppColor.lightTextColor,
+                    fontSize: 16,
+                    fontWeight: FontWeight.w500),
               ),
               SizedBox(
                 // height: Get.height * 0.018,
@@ -135,20 +137,20 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 // height: 56,
                 decoration: BoxDecoration(
                     border: Border.all(color: Colors.grey),
-                    borderRadius: BorderRadius.circular(30)),
+                    borderRadius: BorderRadius.circular(16)),
                 child: Center(
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Image.asset(
                         'assets/images/google.png',
-                        height: Get.height * 0.036,
+                        height: Get.height * 0.046,
                         // height: 32,
                         width: Get.width * 0.09,
                         //width: 32,
                       ),
                       SizedBox(
-                        width: Get.width * 0.01,
+                        width: Get.width * 0.02,
                         //width: 10,
                       ),
                       Text(
@@ -170,13 +172,15 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 child: RichText(
                   text: TextSpan(children: [
                     TextSpan(
-                        text: 'Allready have account?',
+                        text: 'Allready have account? ',
                         style: kTextStyle.copyWith(
-                            color: AppColor.lightTextColor, fontSize: 16)),
+                            color: AppColor.lightTextColor, fontSize: 18)),
                     TextSpan(
                         text: 'LogIn',
                         style: kTextStyle.copyWith(
-                            color: AppColor.violetColor, fontSize: 16)),
+                            color: AppColor.violetColor,
+                            fontSize: 16,
+                            fontWeight: FontWeight.w700)),
                   ]),
                 ),
               ),

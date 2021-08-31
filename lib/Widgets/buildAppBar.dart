@@ -13,9 +13,14 @@ PreferredSize buildAppBar({String title, Color color, IconData actionIcon}) {
         backgroundColor: Colors.transparent,
         leading: Padding(
           padding: const EdgeInsets.only(left: 20),
-          child: Icon(
-            Icons.arrow_back,
-            color: color,
+          child: InkWell(
+            onTap: () {
+              Get.back();
+            },
+            child: Icon(
+              Icons.arrow_back,
+              color: color,
+            ),
           ),
         ),
         centerTitle: true,
@@ -57,11 +62,12 @@ Widget displayCustomAppBar(
       Padding(
         padding: const EdgeInsets.all(8.0),
         child: InkWell(
-            onTap: deleteHandler,
-            child: Icon(
-              Icons.delete,
-              color: Colors.white,
-            )),
+          onTap: deleteHandler,
+          child: Icon(
+            Icons.delete,
+            color: Colors.white,
+          ),
+        ),
       ),
     ],
   );

@@ -120,10 +120,11 @@ class _BudgetScreenState extends State<BudgetScreen> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Container(
+                padding: EdgeInsets.only(left: 5, right: 5),
                 height: Get.height * 0.036,
-                width: Get.width * 0.3,
+                // width: Get.width * 0.3,
                 decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(20),
+                    borderRadius: BorderRadius.circular(8),
                     border: Border.all()),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -134,36 +135,40 @@ class _BudgetScreenState extends State<BudgetScreen> {
                       decoration:
                           BoxDecoration(color: color, shape: BoxShape.circle),
                     ),
+                    displaySizedBox(width: Get.width * 0.02),
                     Text(title),
                   ],
                 ),
               ),
               Icon(
                 icon,
-                size: 5,
+                size: 30,
                 color: AppColor.redColor,
               ),
             ],
           ),
+          displaySizedBox(height: Get.height * 0.01),
           Text(
             'Remembering \$$amount',
             style:
                 kTextStyle.copyWith(fontSize: 24, fontWeight: FontWeight.bold),
           ),
+          // displaySizedBox(height: Get.height * 0.03),
           Text(
             '\$$firstAmount of \$$lastAmount',
             style: kTextStyle.copyWith(
                 fontSize: 16, color: AppColor.lightTextColor),
           ),
+          displaySizedBox(height: Get.height * 0.01),
           Text(
             'You have exceed the limit',
             style: kTextStyle.copyWith(fontSize: 14, color: AppColor.redColor),
           ),
           Container(
-              alignment: Alignment.topCenter,
+              // alignment: Alignment.topCenter,
               //color: AppColor.yellowColor,
-
-              margin: EdgeInsets.all(20),
+              width: Get.width,
+              margin: EdgeInsets.only(top: 10),
               child: LinearProgressIndicator(
                 color: progressColor,
                 minHeight: 7,

@@ -44,7 +44,7 @@ class _SplashScreenState extends State<SplashScreen> {
           image:
               DecorationImage(image: AssetImage('assets/images/Ellipse.png'))),
       child: Center(
-        child: Text('Montra',
+        child: Text('Expencer',
             style: kTextStyle.copyWith(
                 fontSize: 56,
                 color: Colors.white,

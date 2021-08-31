@@ -71,8 +71,8 @@ class _SignInScreenState extends State<SignInScreen> {
               textColor: AppColor.lightVioletColor,
             ),
             SizedBox(
-              //height: Get.height * 0.033,
-              height: 33,
+              height: Get.height * 0.033,
+              //height: 33,
 
               // height: 40,
             ),

@@ -21,14 +21,15 @@ class _LineCharttState extends State<LineChartt> {
         AspectRatio(
           aspectRatio: 2.5,
           child: Container(
-            decoration: const BoxDecoration(
-                // borderRadius: BorderRadius.circular(
-                //   // Radius.circular(18),
-                // ),
-                // color: Color(0xff232d37)
-                ),
+            // decoration: const BoxDecoration(
+            //     borderRadius: BorderRadius.circular(
+            //        Radius.circular(18),
+            //     ),
+            //     color: Color(0xff232d37)
+            //     ),
             child: Padding(
-              padding: const EdgeInsets.only(right: 0.0, left: 0.0, top: 24, bottom: 12),
+              padding: const EdgeInsets.only(
+                  right: 0.0, left: 0.0, top: 24, bottom: 12),
               child: LineChart(
                 showAvg ? avgData() : mainData(),
               ),
@@ -78,8 +79,10 @@ class _LineCharttState extends State<LineChartt> {
         bottomTitles: SideTitles(
           showTitles: true,
           reservedSize: 22,
-          getTextStyles: (context, value) =>
-              const TextStyle(color: Color(0xff68737d), fontWeight: FontWeight.bold, fontSize: 16),
+          getTextStyles: (context, value) => const TextStyle(
+              color: Color(0xff68737d),
+              fontWeight: FontWeight.bold,
+              fontSize: 16),
           getTitles: (value) {
             switch (value.toInt()) {
               case 2:
@@ -115,8 +118,9 @@ class _LineCharttState extends State<LineChartt> {
           margin: 12,
         ),
       ),
-      borderData:
-          FlBorderData(show: true, border: Border.all(color: const Color(0xff37434d), width: 1)),
+      borderData: FlBorderData(
+          show: false,
+          border: Border.all(color: const Color(0xff37434d), width: 1)),
       minX: 0,
       maxX: 11,
       minY: 0,
@@ -141,7 +145,8 @@ class _LineCharttState extends State<LineChartt> {
           ),
           belowBarData: BarAreaData(
             show: true,
-            colors: gradientColors.map((color) => color.withOpacity(0.3)).toList(),
+            colors:
+                gradientColors.map((color) => color.withOpacity(0.09)).toList(),
           ),
         ),
       ],
@@ -172,8 +177,10 @@ class _LineCharttState extends State<LineChartt> {
         bottomTitles: SideTitles(
           showTitles: true,
           reservedSize: 22,
-          getTextStyles: (context, value) =>
-              const TextStyle(color: Color(0xff68737d), fontWeight: FontWeight.bold, fontSize: 16),
+          getTextStyles: (context, value) => const TextStyle(
+              color: Color(0xff68737d),
+              fontWeight: FontWeight.bold,
+              fontSize: 16),
           getTitles: (value) {
             switch (value.toInt()) {
               case 2:
@@ -209,8 +216,10 @@ class _LineCharttState extends State<LineChartt> {
           margin: 12,
         ),
       ),
-      borderData:
-          FlBorderData(show: true, border: Border.all(color: const Color(0xff37434d), width: 1)),
+      borderData: FlBorderData(
+        show: true,
+        border: Border.all(color: const Color(0xff37434d), width: 1),
+      ),
       minX: 0,
       maxX: 11,
       minY: 0,
@@ -228,8 +237,10 @@ class _LineCharttState extends State<LineChartt> {
           ],
           isCurved: true,
           colors: [
-            ColorTween(begin: gradientColors[0], end: gradientColors[1]).lerp(0.2),
-            ColorTween(begin: gradientColors[0], end: gradientColors[1]).lerp(0.2),
+            ColorTween(begin: gradientColors[0], end: gradientColors[1])
+                .lerp(0.2),
+            ColorTween(begin: gradientColors[0], end: gradientColors[1])
+                .lerp(0.2),
           ],
           barWidth: 5,
           isStrokeCapRound: true,

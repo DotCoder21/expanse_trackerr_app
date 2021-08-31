@@ -17,17 +17,25 @@ class _ProfileState extends State<Profile> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppColor.backgroundColor,
       body: Container(
         //  padding: EdgeInsets.symmetric(horizontal: 20),
         padding: EdgeInsets.symmetric(horizontal: 25),
         child: Column(
           children: [
-            displaySizedBox(height: Get.height * 0.07),
+            displaySizedBox(height: Get.height * 0.1),
             Container(
               child: Row(
                 //  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  Image.asset('assets/images/profile.png'),
+                  CircleAvatar(
+                    // backgroundColor: Colors.transparent,
+                    backgroundImage: AssetImage(
+                      'assets/images/image.png',
+                    ),
+                    radius: 40,
+                  ),
+                  // Image.asset('assets/images/profile.png'),
                   displaySizedBox(width: Get.width * 0.04),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -39,7 +47,7 @@ class _ProfileState extends State<Profile> {
                       ),
                       displaySizedBox(height: Get.height * 0.008),
                       Text(
-                        'Iriana Saliha',
+                        'Hamid Shah',
                         style: kTextStyle.copyWith(
                             fontSize: 24, color: Colors.black),
                       ),
@@ -50,12 +58,13 @@ class _ProfileState extends State<Profile> {
                 ],
               ),
             ),
-            displaySizedBox(height: Get.height * 0.06),
+            displaySizedBox(height: Get.height * 0.07),
             Container(
               width: double.infinity,
               height: Get.height * 0.45,
               decoration: BoxDecoration(
-                  color: Colors.white, borderRadius: BorderRadius.circular(20)),
+                  color: Colors.grey.withOpacity(0.09),
+                  borderRadius: BorderRadius.circular(20)),
 
               child: Column(
                 children: [

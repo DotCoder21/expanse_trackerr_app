@@ -8,6 +8,10 @@ import 'package:flutter/painting.dart';
 import 'package:get/get.dart';
 
 class AccountDetail extends StatefulWidget {
+  final image;
+  final text;
+  final amount;
+  AccountDetail({this.image, this.text, this.amount});
   @override
   _AccountDetailState createState() => _AccountDetailState();
 }
@@ -54,17 +58,17 @@ class _AccountDetailState extends State<AccountDetail> {
               children: [
                 displaySizedBox(height: Get.height * 0.04),
                 Image.asset(
-                  'assets/images/paypal.png',
+                  widget.image,
                 ),
                 displaySizedBox(height: Get.height * 0.01),
                 Text(
-                  'PayPal',
+                  widget.text,
                   style: kTextStyle.copyWith(
                       fontSize: 24, fontWeight: FontWeight.bold),
                 ),
                 displaySizedBox(height: Get.height * 0.014),
                 Text(
-                  '\$200',
+                  '\$ ${widget.amount.toString()}',
                   style: kTextStyle.copyWith(
                       fontSize: 32, fontWeight: FontWeight.bold),
                 ),
@@ -88,18 +92,18 @@ class _AccountDetailState extends State<AccountDetail> {
                       itemBuilder: (context, i) {
                         return Padding(
                           padding: const EdgeInsets.symmetric(
-                              horizontal: 5, vertical: 10),
+                              horizontal: 0, vertical: 5.0),
                           child: Container(
                             height: Get.height * 0.12,
 
                             // height: 89,
                             width: double.infinity,
-                            padding: EdgeInsets.symmetric(horizontal: 17),
+                            padding: EdgeInsets.symmetric(horizontal: 16),
                             decoration: BoxDecoration(
                                 // color: AppColor.lightTextColor,
-                                //  color: Colors.green,
-                                color: AppColor.cardBackGroundColor,
-                                borderRadius: BorderRadius.circular(24)),
+                                color: Colors.grey.withOpacity(0.09),
+                                // color: AppColor.cardBackGroundColor,
+                                borderRadius: BorderRadius.circular(16)),
                             child: Row(
                               // crossAxisAlignment: CrossAxisAlignment.,
 
@@ -113,8 +117,11 @@ class _AccountDetailState extends State<AccountDetail> {
                                   children: [
                                     Text(
                                       cardList[i]['title'],
-                                      style: kTextStyle.copyWith(fontSize: 16),
+                                      style: kTextStyle.copyWith(
+                                          fontSize: 16,
+                                          fontWeight: FontWeight.w500),
                                     ),
+                                    SizedBox(height: 5.0),
                                     Text(
                                       cardList[i]['subTitle'],
                                       style: kTextStyle.copyWith(
@@ -131,8 +138,11 @@ class _AccountDetailState extends State<AccountDetail> {
                                       cardList[i]['price'],
                                       style: kTextStyle.copyWith(
                                           color: AppColor.redColor,
-                                          fontSize: 14),
+                                          fontSize: 14,
+                                          fontWeight: FontWeight.w700,
+                                          letterSpacing: 1.0),
                                     ),
+                                    SizedBox(height: 5.0),
                                     Text(
                                       cardList[i]['time'],
                                       style: kTextStyle.copyWith(
